@@ -48,8 +48,15 @@ app.post("/login", async (c) => {
   return c.redirect("/");
 });
 
+// Deployed without a password, serve nothing rather than serve the app to anyone.
+const DEPLOYED = Boolean(process.env.RAILWAY_ENVIRONMENT_NAME);
 app.use("*", async (c, next) => {
-  const open = ["/login.html", "/style.css", "/manifest.webmanifest", "/icon.svg", "/healthz"];
+  if (!PASSWORD && DEPLOYED && c.req.path !== "/healthz") return c.text("Set APP_PASSWORD to use this app.", 503);
+  return next();
+});
+
+app.use("*", async (c, next) => {
+  const open =["/login.html", "/style.css", "/manifest.webmanifest", "/icon.svg", "/healthz"];
   if (!PASSWORD || open.includes(c.req.path) || getCookie(c, COOKIE) === sessionToken) return next();
   if (c.req.path.startsWith("/api/")) return c.json({ error: "unauthorized" }, 401);
   return c.redirect("/login.html");
