@@ -1,0 +1,15 @@
+{
+  "note": "First live quiz session, held in chat before the app existed. Ratings use FSRS terms: again (miss), hard (correct but shaky or flawed reasoning), good (correct), easy (instant recall). q1 and q2 used weaker earlier versions of their questions.",
+  "attempts": [
+    { "at": "2026-11-18", "question": "public-goods-rationale/1", "correct": true, "rating": "good", "note": "Eliminated options by general reasoning; old distractors were too weak to need the chapter." },
+    { "at": "2026-11-18", "question": "insight-not-oversight/1", "correct": true, "rating": "good", "note": "Same weakness as q1. Thought some COTS winners were incumbents; both first winners were young companies." },
+    { "at": "2026-11-18", "question": "kistler-termination/1", "correct": true, "rating": "hard", "note": "Unsure between capital and overrun; correctly remembered it was behind schedule, not over budget." },
+    { "at": "2026-11-18", "question": "shuttle-shortfall/3", "correct": false, "rating": "again", "note": "Chose 'both ran over'. Didn't remember development hit target and operations were the miss." },
+    { "at": "2026-11-18", "question": "constellation-vs-cots/1", "correct": true, "rating": "hard", "note": "Knew COTS, but couldn't place CRS, Commercial Crew or Constellation." },
+    { "at": "2026-11-18", "question": "constellation-vs-cots/2", "correct": true, "rating": "good", "note": "Full recall, cued by the previous question: Apollo on steroids, parallel to COTS, canceled." },
+    { "at": "2026-11-18", "question": "shuttle-monopoly/1", "correct": true, "rating": "hard", "note": "Right answer, flawed reasoning: believed no private expendables existed. They did, and were displaced by the shuttle." },
+    { "at": "2026-11-18", "question": "aldridge-commission/1", "correct": false, "rating": "again", "note": "Chose research-and-design split; rejected the real test as too restrictive for the era. Good reasoning, wrong recall." },
+    { "at": "2026-11-18", "question": "one-customer-among-many/1", "correct": true, "rating": "good", "note": "Strong reasoning: without IP, companies had nothing to sell to others." },
+    { "at": "2026-11-18", "question": "reusability-2015/1", "correct": true, "rating": "easy", "note": "Instant recall." }
+  ]
+}

@@ -13,929 +13,860 @@
   "concepts": [
     {
       "id": "shuttle-gap",
-      "statement": "The shuttle was America's only means of putting humans in space, so its retirement left the US with no homegrown way to reach the ISS and forced it to buy seats on Russia's Soyuz.",
       "importance": 3,
+      "statement": "The shuttle was America's only means of putting humans in space, so its retirement left the US with no homegrown way to reach the ISS and forced it to buy seats on Russia's Soyuz. The authors frame this crisis as the opening that let NASA turn to the commercial sector.",
       "passage": "The shuttle was America's only means of putting humans in space, so its cancellation made apparent to everyone the lack of any homegrown alternatives for launching crew and cargo to the ISS",
       "questions": [
         {
+          "id": "shuttle-gap/1",
           "level": "recall",
-          "prompt": "When the shuttle program ended, how did the United States plan to get its astronauts to the ISS?",
-          "answer": "By paying Russia for seats on Soyuz",
+          "prompt": "When the shuttle retired in 2011, how did the US plan to get its astronauts to the ISS?",
+          "answer": "Buy seats on Russia's Soyuz rocket",
+          "why": "With no US vehicle able to carry crew, the only option was paying Russia tens of millions of dollars per seat. The authors call it unthinkable and humiliating for the country that beat the Soviets to the Moon.",
           "distractors": [
-            "By flying them on SpaceX's Dragon capsule",
-            "By using the Constellation program's crew rocket",
-            "By suspending US crew flights until a replacement existed"
-          ],
-          "explanation": "No domestic alternative existed in 2011. Constellation had been canceled and commercial crew did not fly until 2020, so the only option was buying Soyuz seats for tens of millions of dollars each."
+            { "text": "Fly them on SpaceX's Dragon capsule", "why": "Dragon didn't carry astronauts until 2020, under Commercial Crew. In 2011 it hadn't even delivered cargo to the ISS yet; that came in 2012." },
+            { "text": "Use Constellation's new crew rocket", "why": "Constellation was canceled in 2010, and its crew rocket was never finished." },
+            { "text": "Keep one shuttle flying until a replacement was ready", "why": "After Columbia, the shuttles were set to retire as soon as ISS construction was complete. Atlantis flew the last mission in July 2011." }
+          ]
         },
         {
+          "id": "shuttle-gap/2",
           "level": "comprehension",
-          "prompt": "Why do the authors treat the shuttle's retirement as an opportunity and not only a crisis?",
-          "answer": "It left a void that made room to change how NASA worked with industry",
+          "prompt": "The authors call the shuttle's retirement an opportunity as well as a crisis. What was the opportunity?",
+          "answer": "Room for NASA to turn to the commercial sector",
+          "why": "The shuttle had dominated NASA's missions and money for thirty years. Its absence, as Bretton Alexander put it, created a void that allowed NASA to look to the commercial sector.",
           "distractors": [
-            "It freed up enough budget to fully fund a return to the Moon",
-            "It ended the political pressure to protect jobs in key districts",
-            "It forced Congress to restore NASA's Apollo-era share of spending"
-          ],
-          "explanation": "The shuttle's dominance had starved alternatives of funding and missions. Its absence was the blank slate that let NASA look to the commercial sector. The political pressures and budget limits did not go away."
+            { "text": "Shuttle money freed up for a return to the Moon", "why": "That was Constellation's plan, and it was underfunded, over budget and canceled. The opportunity was a change in how NASA works, not a pot of money." },
+            { "text": "An end to jobs-program pressure from Congress", "why": "That pressure survived. Even after Constellation was canceled, Congress kept funding many of its components." },
+            { "text": "A case for restoring NASA's Apollo-era budget", "why": "NASA's share of federal spending has stayed around 0.5%. The gap changed how NASA works, not how much it gets." }
+          ]
         }
       ]
     },
     {
       "id": "public-goods-rationale",
-      "statement": "The early space program was centrally run because its priorities (national prestige, national security, science, exploration) are public goods, which markets underprovide and governments do best.",
       "importance": 3,
+      "statement": "The early space program was centrally run because its priorities (national prestige, national security, science, exploration) are public goods, which markets underprovide and governments do best.",
       "passage": "the priorities of the early space program—national prestige, national security, science, and exploration—are classic examples of activities that governments do best, what economists call public goods",
       "questions": [
         {
+          "id": "public-goods-rationale/1",
           "level": "comprehension",
           "prompt": "According to the authors, why was central government control a natural fit for the early US space program?",
-          "answer": "Its goals were public goods that markets would underprovide",
+          "answer": "Its goals were public goods markets underprovide",
+          "why": "National prestige, security, science and exploration are classic public goods. Government set the goals; private contractors still built most of the hardware.",
           "distractors": [
-            "Private firms lacked the engineering talent to build rockets",
-            "Space law at the time barred companies from launching",
-            "Congress distrusted contractors after wartime procurement scandals"
-          ],
-          "explanation": "Prestige, security, science and exploration are public goods. Private contractors did build the hardware, but public officials set the goals, funding, timelines and requirements."
+            { "text": "Rockets were too risky an investment for private firms", "why": "That risk is why NASA used cost-plus contracts, which made firms willing to do the work. It explains how NASA contracted, not why government set the goals." },
+            { "text": "The Soviet lead left no time for a market to develop", "why": "The Soviet lead explains the urgency. The authors' argument is about the kind of goal: markets underprovide prestige, security and science however much time they have." },
+            { "text": "Congress wanted space jobs spread across key districts", "why": "That's the concentrated-interest pressure the authors list as a weakness that grew over time, not the original rationale." }
+          ]
         },
         {
+          "id": "public-goods-rationale/2",
           "level": "application",
-          "prompt": "By the chapter's logic, which of these space activities would be the weakest candidate for handing to the market?",
-          "answer": "A basic-science probe to study the outer planets",
+          "reasoning": true,
+          "prompt": "By the chapter's logic, which space activity is the weakest candidate for handing to the market?",
+          "answer": "A basic-science probe to the outer planets",
+          "why": "Basic research is a public good with no paying customer, so a market would underprovide it. The other three are services the chapter shows companies already selling.",
           "distractors": [
-            "Routine cargo delivery to a space station",
-            "Launching commercial communications satellites",
-            "Suborbital tourism flights"
-          ],
-          "explanation": "Basic research is a public good with no paying customer, so the market would underprovide it. The other three are routine services with identifiable buyers, where competition and prices can work.",
-          "reasoning": true
+            { "text": "Routine cargo delivery to a space station", "why": "COTS and CRS showed companies can do this for a fraction of NASA's cost." },
+            { "text": "Launching commercial communications satellites", "why": "SpaceX began doing exactly this on rockets developed under COTS." },
+            { "text": "Suborbital tourism flights", "why": "Blue Origin's New Shepard became the world's leading suborbital tourism vehicle." }
+          ]
         }
       ]
     },
     {
       "id": "central-control-weaknesses",
-      "statement": "Central control has three structural weaknesses: little competition means weak incentives for efficiency and innovation, price signals deteriorate so resources can't be allocated well, and officials face pressure to serve concentrated interests.",
       "importance": 3,
+      "statement": "Central control has three structural weaknesses: without competition there are weak incentives for efficiency and innovation; price signals deteriorate, so resources can't be allocated well; and officials face pressure to serve concentrated interests.",
       "passage": "The lack of the competition that you see in a free market means there are limited incentives for efficiency and innovation. Over time, price signals deteriorate, so determining the best way to allocate resources becomes nearly impossible",
       "questions": [
         {
+          "id": "central-control-weaknesses/1",
           "level": "recall",
-          "prompt": "Which of these is NOT one of the structural weaknesses of central control the authors identify?",
-          "answer": "Planners lack the technical expertise to judge engineering work",
+          "prompt": "Which of these is NOT one of the three structural weaknesses of central control the authors identify?",
+          "answer": "Political swings that disrupt long technical projects",
+          "why": "Some people blamed politics for mangling yearslong projects, but the authors say it 'wasn't really anyone's fault': the problem was structural. Their three weaknesses are missing competition, deteriorating prices and concentrated interests.",
           "distractors": [
-            "Weak incentives for efficiency and innovation without competition",
-            "Price signals that deteriorate until allocation becomes guesswork",
-            "Pressure on officials to serve concentrated interests"
-          ],
-          "explanation": "The authors stress that the problem was structural and 'wasn't really anyone's fault'. NASA's engineers were world-class. The three weaknesses are missing competition, missing prices and capture by concentrated interests."
+            { "text": "Weak incentives for efficiency without competition", "why": "One of the three. Without competitors, there is little push to cut costs or innovate." },
+            { "text": "Price signals that deteriorate over time", "why": "One of the three. Without prices, planners can't tell what things really cost or are worth." },
+            { "text": "Pressure on officials to serve concentrated interests", "why": "One of the three. The shuttle-and-station 'jobs program' is the chapter's example." }
+          ]
         },
         {
+          "id": "central-control-weaknesses/2",
           "level": "comprehension",
-          "prompt": "The authors say that under central control 'price signals deteriorate'. What is the practical consequence?",
-          "answer": "Even well-meaning planners can't tell where resources are best used",
+          "prompt": "Which problem follows specifically from the loss of price signals under central control?",
+          "answer": "Planners can't tell where resources do the most good",
+          "why": "Prices carry information about true costs and benefits. Without them, allocating resources well becomes nearly impossible, however well-meaning the planners.",
           "distractors": [
-            "Contractors raise their prices faster than inflation",
-            "The government loses the ability to audit what it has spent",
-            "Private investors stop funding companies in the sector"
-          ],
-          "explanation": "Prices carry information about true costs and benefits. Without them, allocating resources well becomes nearly impossible regardless of the planners' intentions."
+            { "text": "Contractors pad costs because margins are guaranteed", "why": "That's an incentive problem, from cost-plus contracting. Contractors would pad a reimbursed bill even if good prices existed." },
+            { "text": "Spending gets steered to districts with space jobs", "why": "That's the concentrated-interest weakness, a separate one of the three." },
+            { "text": "Innovation slows because no rival is pushing", "why": "That's the competition weakness, a separate one of the three." }
+          ]
         }
       ]
     },
     {
       "id": "narrow-goal-vs-frontier",
-      "statement": "Centralized models perform well against a clear, narrow, fixed goal (Apollo, early Soviet industrialization) and struggle once the task becomes open-ended. The US space program kept its Apollo-era structure after the goal changed.",
       "importance": 3,
+      "statement": "Centralized models perform well against a clear, narrow, fixed goal (Apollo, early Soviet industrialization) and struggle once the task becomes open-ended. The US space program kept its Apollo-era structure after the goal changed.",
       "passage": "America's initial moonshot program of the 1960s had a clear and narrow objective that was well suited to central control. Though the space program accomplished wonders after Apollo, its structure failed to evolve",
       "questions": [
         {
+          "id": "narrow-goal-vs-frontier/1",
           "level": "comprehension",
           "prompt": "What parallel do the authors draw between the Soviet economy and the US space program?",
-          "answer": "Both thrived on narrow goals and faltered on open-ended ones",
+          "answer": "Both did well on fixed goals, badly on open ones",
+          "why": "The Soviet economy looked invincible while it pursued fixed industrial targets, and Apollo had one clear objective. Both centralized models faltered facing an uncertain frontier. Jim Cantrell's line: the industry that beat the Soviets was 'operating on a Soviet economic model'.",
           "distractors": [
-            "Both collapsed once military spending crowded out civilian work",
-            "Both depended on technology taken from a rival power",
-            "Both failed because leaders ignored their own engineers"
-          ],
-          "explanation": "The Soviet economy looked invincible while it had fixed short-term industrial goals, and Apollo had a clear narrow objective. Both centralized models struggled once they faced an uncertain frontier."
-        },
-        {
-          "level": "recall",
-          "prompt": "Space executive Jim Cantrell said the aerospace industry that beat the Soviets 'in the defense of capitalism' was itself operating on what?",
-          "answer": "A Soviet economic model",
-          "distractors": [
-            "A wartime mobilization model",
-            "A regulated-utility model",
-            "A venture capital model"
-          ],
-          "explanation": "Cantrell's irony: the industry that won the space race was centrally planned and isolated from market forces."
+            { "text": "Both lost public support once the space race was won", "why": "US public support did fade after Apollo, but that's a point about American opinion, not the parallel the authors draw." },
+            { "text": "Both bet on one flagship that crowded out every rival", "why": "That describes the shuttle's monopoly over US launch, not the Soviet comparison." },
+            { "text": "Both were run as jobs programs for political allies", "why": "Critics called NASA a jobs program. The Soviet parallel is about central planning facing an open-ended frontier." }
+          ]
         }
       ]
     },
     {
       "id": "space-race-security",
-      "statement": "From the start, US officials treated space as a national security matter, including the psychological effect of Soviet 'firsts' on national prestige. NASA was created in response to Sputnik (1957) and Gagarin's flight (1961).",
       "importance": 2,
+      "statement": "From the start, US officials treated space as a national security matter, including the psychological effect of Soviet 'firsts' on national prestige. NASA was created in response to Sputnik (1957) and Gagarin's flight (1961).",
       "passage": "The Soviet Union's success in achieving numerous space \"firsts,\" the document noted, \"have resulted in substantial and enduring gains in Soviet prestige,\" bolstering claims of the Soviet system's \"general superiority.\"",
       "questions": [
         {
+          "id": "space-race-security/1",
           "level": "comprehension",
-          "prompt": "Why did Soviet space 'firsts' alarm US officials in the late 1950s?",
-          "answer": "They bolstered claims that the Soviet system was superior",
+          "prompt": "How did a 1959 US policy statement frame the importance of space?",
+          "answer": "As national security, including prestige",
+          "why": "Soviet 'firsts' were seen as substantial and enduring gains in Soviet prestige that bolstered claims of the Soviet system's superiority. The psychological impact counted as a security issue.",
           "distractors": [
-            "They let the Soviets claim legal ownership of orbital slots",
-            "They threatened the US commercial satellite industry",
-            "They revealed that US rockets could not reach orbit at all"
-          ],
-          "explanation": "A 1959 policy statement framed space in terms of national security and the 'psychological impact' on prestige. No commercial satellite industry existed yet."
+            { "text": "As a new frontier for scientific discovery", "why": "The statement mentions scientific implications, but frames them all under national security." },
+            { "text": "As an economic opportunity for American industry", "why": "That's the authors' modern lens. In 1959 there was no commercial space market to speak of." },
+            { "text": "As an arena for cooperation with other nations", "why": "That's the ISS's legacy, decades later. In 1959 space was a field of competition with the Soviets." }
+          ]
         }
       ]
     },
     {
       "id": "nasa-budget-share",
-      "statement": "NASA's budget peaked in 1966 at 4.4% of federal spending, fell to 1.2% by 1974, and has been around 0.5% for the past decade.",
       "importance": 2,
+      "statement": "NASA's budget peaked in 1966 at 4.4% of federal spending, fell to 1.2% by 1974, and has been around 0.5% for the past decade.",
       "passage": "At its high-water mark in 1966, the agency received $6 billion, or 4.4 percent of the federal budget.",
       "questions": [
         {
+          "id": "nasa-budget-share/1",
           "level": "recall",
-          "prompt": "At its 1966 peak, roughly what share of the federal budget went to NASA?",
-          "answer": "About 4.4%",
+          "prompt": "How did NASA's share of federal spending at its 1966 peak compare with its share today?",
+          "answer": "Roughly ten times larger",
+          "why": "4.4% in 1966 against about 0.5% for the past decade. The 1966 share of today's budget would be about $268 billion.",
           "distractors": [
-            "About 0.5%",
-            "About 1.2%",
-            "About 10%"
-          ],
-          "explanation": "4.4% in 1966. The other two smaller figures are real too: 1.2% by 1974 and about 0.5% today, so the peak was roughly nine times today's share."
+            { "text": "Roughly twice as large", "why": "Far too small. The fall was much steeper." },
+            { "text": "Roughly four times larger", "why": "That's about the drop from 1966 (4.4%) to 1974 (1.2%). It kept falling after that." },
+            { "text": "Roughly fifty times larger", "why": "Too large. Today's share is about 0.5%, not 0.1%." }
+          ]
         }
       ]
     },
     {
       "id": "apollo-public-opinion",
-      "statement": "Public support for space spending was weak even during Apollo: a year after the Moon landing 56% of Americans said it had not been worth the money. Support fell as the perceived Soviet threat faded.",
       "importance": 2,
+      "statement": "Public support for space spending was weak even during Apollo: a year after the Moon landing 56% of Americans said it had not been worth the money. Support fell as the perceived Soviet threat faded.",
       "passage": "one year after the Moon landing (which inspired so many at the time, and so many of today's space leaders), 56 percent felt that it had not been worth the money",
       "questions": [
         {
+          "id": "apollo-public-opinion/1",
           "level": "recall",
-          "prompt": "One year after Apollo 11, how did most Americans feel about what the Moon landing had cost?",
-          "answer": "A majority said it had not been worth the money",
+          "prompt": "A year after Apollo 11, how did Americans feel about what the Moon landing had cost?",
+          "answer": "A majority said it hadn't been worth the money",
+          "why": "56% said it wasn't worth the money, even though 81% agreed nothing could equal watching it live. Admiration didn't translate into willingness to pay.",
           "distractors": [
-            "A majority said it was worth it and wanted a Mars mission next",
-            "Opinion was evenly split along party lines",
-            "A majority said it was worth it but wanted spending frozen"
-          ],
-          "explanation": "56% said it had not been worth the money, even though 81% agreed nothing could equal watching it live. Admiration did not translate into willingness to pay."
+            { "text": "Watching it live had made the cost feel worth it", "why": "81% did say nothing could equal watching it live. But 56% still said it hadn't been worth the money." },
+            { "text": "A majority backed going on to Mars next", "why": "Nixon's Space Task Group proposed Mars, stations and a lunar base. The public didn't want to pay for it." },
+            { "text": "Opinion had swung in favor since 1967", "why": "It barely moved: 54% called the program not worth its budget in 1967, and 56% said the landing wasn't worth it in 1970." }
+          ]
         },
         {
+          "id": "apollo-public-opinion/2",
           "level": "comprehension",
-          "prompt": "What do the authors connect the decline in support for space funding to?",
-          "answer": "The fading of the perceived Soviet threat from space",
+          "prompt": "What do the authors connect the post-Apollo fall in support for space funding to?",
+          "answer": "The fading of the perceived Soviet threat",
+          "why": "Support for space spending tracked the security rationale. As the Soviet threat from space looked smaller, so did the willingness to pay.",
           "distractors": [
-            "The loss of the Apollo 1 crew in a launchpad fire",
-            "The rising cost of the space shuttle program",
-            "Scientists arguing that robotic probes were enough"
-          ],
-          "explanation": "Funding followed the security rationale. Once the Soviet threat looked smaller, so did the case for the spending."
+            { "text": "The shuttle's cost overruns", "why": "Those came a decade or more later. NASA's budget share had already fallen to 1.2% by 1974." },
+            { "text": "The Challenger disaster", "why": "Challenger was 1986. The decline in support started in the 1960s." },
+            { "text": "NASA failing to offer a next goal", "why": "NASA had an ambitious next plan: stations, a lunar base, a Mars mission. The public didn't want to pay for it." }
+          ]
         }
       ]
     },
     {
       "id": "act-one-vs-act-two",
-      "statement": "NASA's Act One (Apollo) was a rally-the-nation feat, which governments do well. Act Two (shuttle and ISS) required continuous improvement, efficiency and cost reduction, which large government programs do poorly.",
       "importance": 3,
+      "statement": "NASA's Act One (Apollo) was a rally-the-nation feat, which governments do well. Act Two (shuttle and ISS) required continuous improvement, efficiency and cost reduction, which large government programs do poorly.",
       "passage": "Act Two required the dogged pursuit of continuous improvement, innovation, efficiency, and cost reduction, not typically strengths we associate with large government programs.",
       "questions": [
         {
+          "id": "act-one-vs-act-two/1",
           "level": "comprehension",
-          "prompt": "What is the fundamental difference the authors draw between NASA's Act One and Act Two?",
-          "answer": "Act One was a one-off feat. Act Two needed steady cost reduction",
+          "prompt": "What is the fundamental difference the authors draw between NASA's Act One (Apollo) and Act Two (the shuttle and ISS)?",
+          "answer": "A one-off feat versus steady cost cutting",
+          "why": "Rallying a nation to pull off a seemingly impossible feat plays to government strengths. Making space access routine and affordable takes steady efficiency gains, which large government programs aren't known for.",
           "distractors": [
-            "Act One was crewed. Act Two relied mainly on robotic missions",
-            "Act One was military-led. Act Two was run by civilians",
-            "Act One was built in-house. Act Two was built by contractors"
-          ],
-          "explanation": "Rallying a country around a seemingly impossible goal plays to a government's strengths. Making access routine and affordable requires continuous efficiency gains, which it does not."
+            { "text": "Government-run versus commercially run", "why": "Act Two was still government-run. The commercial shift came after it, with COTS." },
+            { "text": "Expendable rockets versus a reusable vehicle", "why": "True of the hardware, but the authors' distinction is about the kind of task, not the technology." },
+            { "text": "Built in-house versus built by contractors", "why": "Both acts relied on contractors. About 90% of NASA's space work was contracted out." }
+          ]
         },
         {
+          "id": "act-one-vs-act-two/2",
           "level": "application",
-          "prompt": "The authors cite Operation Warp Speed as a modern 'Act One'. Which task would be the closest analogue to an 'Act Two'?",
+          "reasoning": true,
+          "prompt": "The authors call Operation Warp Speed a modern 'Act One'. Which task would be the closest analogue to an 'Act Two'?",
           "answer": "Cutting vaccine production costs year after year",
+          "why": "Act Two is ongoing, incremental cost and efficiency work, the kind the authors say large government programs struggle with.",
           "distractors": [
-            "Developing a vaccine for a newly emerged virus within a year",
-            "Building the first working fusion power plant",
-            "Landing the first humans on Mars"
-          ],
-          "explanation": "Act Two work is ongoing, incremental cost and efficiency improvement. The other three are single, clearly defined feats that reward concentrated national effort.",
-          "reasoning": true
+            { "text": "Developing a vaccine for a new virus within a year", "why": "That's Warp Speed itself: a single urgent feat. Act One." },
+            { "text": "Building the first working fusion power plant", "why": "A single, clearly defined breakthrough. Act One." },
+            { "text": "Landing the first humans on Mars", "why": "The archetypal Act One goal: one feat, one deadline." }
+          ]
         }
       ]
     },
     {
       "id": "reusability-economics",
-      "statement": "The shuttle's economic case was reusability: a reusable vehicle costs more up front, but if it flies often, the high fixed cost is spread over many launches and the average cost per launch falls.",
       "importance": 3,
+      "statement": "The shuttle's economic case was reusability: a reusable vehicle costs more up front, but if it flies often, the high fixed cost is spread over many launches and the average cost per launch falls.",
       "passage": "if one vehicle could be used over and over, the high initial costs would be worth it because the average cost per launch could fall",
       "questions": [
         {
+          "id": "reusability-economics/1",
           "level": "comprehension",
           "prompt": "The shuttle cost far more to develop than an expendable rocket. What had to be true for it to be cheaper per launch anyway?",
-          "answer": "It had to fly often enough to spread its fixed costs",
+          "answer": "It had to fly often, spreading its fixed costs",
+          "why": "Reusability pays off only through flight rate. The shuttle was projected to fly sixty missions a year and averaged fewer than five.",
           "distractors": [
-            "It had to carry heavier payloads than any expendable rocket",
-            "It had to be sold to commercial operators after development",
-            "It had to replace its solid boosters with reusable ones"
-          ],
-          "explanation": "Reusability only pays off through flight rate. The shuttle was projected to fly sixty missions a year and averaged fewer than five, so the average cost never came down."
+            { "text": "It had to come in on its development cost target", "why": "It did hit its development target and was still enormously expensive per launch. Operations were the problem." },
+            { "text": "It had to carry every defense payload", "why": "That was how the government tried to raise the flight rate: a means to the condition, not the condition itself." },
+            { "text": "Its boosters had to be reusable too", "why": "More reuse doesn't help if the vehicle rarely flies. Falcon 9 reuses only its first stage and still cut cost per kilogram about twentyfold." }
+          ]
         },
         {
+          "id": "reusability-economics/2",
           "level": "application",
-          "prompt": "A startup claims its fully reusable rocket will halve launch prices. Based on the shuttle's history, which question most directly tests that claim?",
-          "answer": "How often will each vehicle fly per year?",
+          "reasoning": true,
+          "prompt": "A startup says its reusable rocket will halve launch prices. Based on the shuttle's history, which question tests that claim most directly?",
+          "answer": "How many times a year will each vehicle fly?",
+          "why": "The shuttle's cost case collapsed on flight rate and operating cost, not on development cost or payload.",
           "distractors": [
-            "How much did the vehicle cost to develop?",
-            "How many engines does the first stage use?",
-            "What is the maximum payload it can lift to orbit?"
-          ],
-          "explanation": "The shuttle hit its development cost target but missed on flight rate and operating cost by a wide margin. Flight rate decides whether reuse lowers average cost.",
-          "reasoning": true
+            { "text": "How much did it cost to develop?", "why": "The shuttle hit its development target and still failed on cost." },
+            { "text": "How much payload can it lift?", "why": "The shuttle had a large cargo bay. Capability didn't save its economics." },
+            { "text": "Is the whole rocket reusable?", "why": "Falcon 9 reuses only its first stage and still cut cost per kilogram about twentyfold." }
+          ]
         }
       ]
     },
     {
       "id": "shuttle-monopoly",
-      "statement": "To give the shuttle enough flights to spread its fixed costs, the government routed all defense payloads to it. This handed it a de facto monopoly, and US private expendable launchers were phased out by the late 1970s.",
       "importance": 3,
+      "statement": "To give the shuttle enough flights to spread its fixed costs, the government routed all defense payloads to it. This handed it a de facto monopoly, and the existing US private expendable launchers were phased out by the late 1970s.",
       "passage": "The shuttle program was handed a de facto monopoly before it even started, and by the late 1970s US private launch vehicles were phased out.",
       "questions": [
         {
+          "id": "shuttle-monopoly/1",
           "level": "comprehension",
-          "prompt": "Why were national security agencies told that the shuttle would carry all defense payloads?",
-          "answer": "To spread its fixed costs over more missions",
+          "prompt": "In the 1970s the government directed that all defense payloads would fly on the shuttle. What was the main reason?",
+          "answer": "To spread its fixed costs over more flights",
+          "why": "A reusable vehicle with high fixed costs pays off only at a high flight rate. Guaranteeing it the defense market was meant to supply that rate, and it also protected Apollo-era NASA and contractor jobs.",
           "distractors": [
-            "Because expendable rockets had proven too unreliable for them",
-            "Because only the shuttle could reach the orbits they required",
-            "To keep classified hardware out of private contractors' hands"
-          ],
-          "explanation": "The shuttle's economics depended on volume, and its political support depended on preserving Apollo-era jobs. Guaranteeing it the defense market served both."
-        },
-        {
-          "level": "recall",
-          "prompt": "What happened to US private expendable launch vehicles as the shuttle program took shape in the late 1970s?",
-          "answer": "They were phased out",
-          "distractors": [
-            "They were limited to commercial satellites only",
-            "They were merged into a single government-owned firm",
-            "They were kept as a backup fleet for defense payloads"
-          ],
-          "explanation": "The shuttle displaced an existing industry. This is why the Challenger-era and later efforts to revive commercial launch had to start nearly from scratch."
+            { "text": "Defense had shaped its design and wanted to use it", "why": "Defense needs did influence the design, but the payload directive was about the shuttle's economics. Defense later lost enthusiasm for it." },
+            { "text": "Private rockets had been retired, leaving no alternative", "why": "Backwards. Private expendables existed and were flying; they were phased out because the shuttle was given their missions." },
+            { "text": "Only the shuttle could repair satellites in orbit", "why": "A real capability (it famously fixed Hubble), but not why defense payloads were routed to it." }
+          ]
         }
       ]
     },
     {
       "id": "shuttle-shortfall",
-      "statement": "The shuttle missed its economic goals badly: projected at sixty flights a year, it averaged fewer than five. Each launch cost about $1.5 billion, roughly $60,000 per kilogram, and the program totaled over $200 billion.",
       "importance": 3,
-      "passage": "Rather than flying sixty missions per year, as projected, the shuttles were flying fewer than ten; across their thirty years in operation, the shuttles would average fewer than five launches per year.",
+      "statement": "The shuttle missed its economic goals badly: projected at sixty flights a year, it averaged fewer than five. Development came in on target but operating costs were underestimated by almost two orders of magnitude: about $1.5 billion per launch, roughly $60,000 per kilogram.",
+      "passage": "Though NASA hit its development cost target for the shuttles, Scott Pace ... told us that the shuttles' operational costs were underestimated \"by almost two orders of magnitude.\"",
       "questions": [
         {
+          "id": "shuttle-shortfall/1",
           "level": "recall",
           "prompt": "The shuttle was projected to fly sixty missions a year. What did it average over its thirty years?",
           "answer": "Fewer than five",
+          "why": "Less than a tenth of the projection. That shortfall is what wrecked the cost case for reuse.",
           "distractors": [
-            "About twelve",
-            "About twenty-five",
-            "About forty"
-          ],
-          "explanation": "Fewer than five a year, less than a tenth of the projection. That shortfall is what destroyed the cost case for reuse."
+            { "text": "About fifteen", "why": "Too high. Even at its busiest the fleet flew fewer than ten a year." },
+            { "text": "About thirty", "why": "Far too high. It never came close to half the projection." },
+            { "text": "About forty-five", "why": "Far too high. It never came close to the projection." }
+          ]
         },
         {
+          "id": "shuttle-shortfall/2",
           "level": "recall",
           "prompt": "Roughly what did it cost the shuttle to put one kilogram of cargo in orbit?",
           "answer": "About $60,000",
+          "why": "About $1.5 billion per launch works out to roughly $60,000 per kilogram in 2008 dollars, nearly $90,000 today.",
           "distractors": [
-            "About $2,800",
-            "About $10,000",
-            "About $500,000"
-          ],
-          "explanation": "About $60,000 per kilogram (2008 dollars), from roughly $1.5 billion per launch. $2,800 is the Falcon 9 figure the chapter contrasts it with."
+            { "text": "About $2,800", "why": "That's Falcon 9, which the chapter contrasts with the shuttle." },
+            { "text": "About $6,000", "why": "Ten times too low." },
+            { "text": "About $600,000", "why": "Ten times too high." }
+          ]
         },
         {
+          "id": "shuttle-shortfall/3",
           "level": "comprehension",
-          "prompt": "NASA hit its target for the shuttle's development cost. Where did the cost estimates go wrong?",
-          "answer": "Operating costs came in nearly a hundred times higher",
+          "prompt": "The shuttle's cost story has two halves, development and operations. How did each turn out against NASA's estimates?",
+          "answer": "Development on target; operations vastly underestimated",
+          "why": "Scott Pace said operating costs were underestimated by almost two orders of magnitude. Building it wasn't the problem; flying it cheaply and often was.",
           "distractors": [
-            "The orbiters wore out and had to be rebuilt every few years",
-            "Fuel prices rose far faster than planners had assumed",
-            "Building the launch sites cost several times the estimate"
-          ],
-          "explanation": "Scott Pace's assessment: development came in on target, but the cost of operating the vehicles safely was almost a hundred times higher than expected."
+            { "text": "Development far over; operations near target", "why": "Reversed. Development came in on target." },
+            { "text": "Both ran over, with development the larger miss", "why": "Development was on target. The miss was almost entirely in operations." },
+            { "text": "Both were near target; the ISS caused the overrun", "why": "The ISS was expensive in its own right, about $100 billion, but each shuttle launch alone cost about $1.5 billion." }
+          ]
         }
       ]
     },
     {
       "id": "iss-cost-critique",
-      "statement": "The ISS cost roughly $100 billion to build and $4 billion a year to maintain. Critics said the scientific returns were not commensurate, and the shuttle and ISS together cannibalized NASA's other programs.",
       "importance": 2,
+      "statement": "The ISS cost roughly $100 billion to build and $4 billion a year to maintain. Critics said the scientific returns were not commensurate, though the authors credit it as a triumph of diplomacy. The shuttle and ISS together cannibalized NASA's other programs.",
       "passage": "the station cost roughly $100 billion to create and $4 billion a year to maintain, and critics alleged that the scientific returns were \"in no way commensurate.\"",
       "questions": [
         {
-          "level": "recall",
-          "prompt": "What was the main criticism leveled at the ISS?",
-          "answer": "Its scientific returns did not justify its cost",
+          "id": "iss-cost-critique/1",
+          "level": "comprehension",
+          "prompt": "The authors report sharp criticism of the ISS's cost. What do they credit it with achieving?",
+          "answer": "A triumph of diplomacy, uniting rivals",
+          "why": "It brought nations like the US and Russia together on science. Critics said the scientific returns were in no way commensurate with its roughly $100 billion cost.",
           "distractors": [
-            "Partnering with Russia gave away sensitive US technology",
-            "It was too small to host meaningful experiments",
-            "Its low orbit made it useless for deep-space research"
-          ],
-          "explanation": "About $100 billion to build and $4 billion a year to run. The authors credit it as a diplomatic triumph, but critics found the science return far too small for the price."
+            { "text": "Making access to orbit routine and affordable", "why": "That was the shuttle's goal, and it failed." },
+            { "text": "Science that justified its price", "why": "Critics said the returns were in no way commensurate with the cost." },
+            { "text": "Returning Americans to deep space", "why": "The ISS is in low Earth orbit. Returning to deep space was the goal of Bush's Vision for Space Exploration." }
+          ]
         }
       ]
     },
     {
       "id": "self-licking-ice-cream-cone",
-      "statement": "Pete Worden's 1992 'self-licking ice cream cone' critique: the shuttle and station justified each other (the station could only be built by the shuttle, and the shuttle's main job was building the station), sustaining jobs in key districts and leaving no money to develop anything cheaper.",
       "importance": 3,
+      "statement": "Pete Worden's 1992 'self-licking ice cream cone' critique: the shuttle and station justified each other (the station could only be built by the shuttle, and the shuttle's main job was building the station), sustaining jobs in key districts and leaving no money to develop anything cheaper.",
       "passage": "the Station is designed so that it can only be built by the Shuttle and the Shuttle is the only way to construct the Station",
       "questions": [
         {
+          "id": "self-licking-ice-cream-cone/1",
           "level": "comprehension",
           "prompt": "What did Pete Worden mean by calling the shuttle and space station a 'self-licking ice cream cone'?",
           "answer": "Each program existed mainly to justify the other",
+          "why": "The station could only be built by the shuttle, and building the station was the shuttle's purpose. The loop absorbed most of NASA's budget and left no money to escape it.",
           "distractors": [
-            "Both produced plenty of spectacle but very little science",
-            "Their budgets kept growing while their capabilities shrank",
-            "Contractors were being paid twice for the same hardware"
-          ],
-          "explanation": "The station could only be built by the shuttle, and building the station was the shuttle's purpose. The loop absorbed most of NASA's budget and created political pressure against escaping it."
+            { "text": "The shuttle cost $1 billion a launch", "why": "Worden said that too, but the metaphor is about circular justification, not price." },
+            { "text": "Both were designed around jobs in key districts", "why": "Worden says that's what keeps the loop going. The image itself describes the loop: each program needs the other." },
+            { "text": "Both delivered spectacle but little science", "why": "A criticism made of the ISS, but not what the metaphor means." }
+          ]
         },
         {
+          "id": "self-licking-ice-cream-cone/2",
           "level": "application",
-          "prompt": "Which situation best fits Worden's 'self-licking ice cream cone' pattern?",
-          "answer": "A team that mainly produces reports on its own process",
+          "reasoning": true,
+          "prompt": "Which situation best fits Worden's 'self-licking ice cream cone'?",
+          "answer": "A conference held mainly to plan the next one",
+          "why": "The pattern is circular justification: an activity whose main output is its own continuation.",
           "distractors": [
-            "A product that is profitable but losing market share",
-            "A project that runs over budget because of bad estimates",
-            "A startup that pivots each time its funding runs low"
-          ],
-          "explanation": "The pattern is circular justification: an activity whose purpose is to sustain itself. Cost overruns and declining share are different failures.",
-          "reasoning": true
+            { "text": "A supplier that wins only because rivals are barred", "why": "That's the shuttle's monopoly pattern: shutting out competition, not justifying itself." },
+            { "text": "A project whose running costs dwarf its build cost", "why": "That's the shuttle's cost pattern." },
+            { "text": "A program kept alive for the jobs it provides", "why": "That's the jobs-program critique. Close, but a program can be propped up by politics without justifying itself in a loop." }
+          ]
         }
       ]
     },
     {
       "id": "early-commercialization-blocked",
-      "statement": "From the Reagan era on, policy endorsed commercial launch (Delta became the first US-licensed commercial vehicle in 1989; the Commercial Space Act passed in 1998), but these efforts stayed marginal because the subsidized, government-run shuttle took the government's missions and most of the funding.",
       "importance": 2,
+      "statement": "From the Reagan era on, policy endorsed commercial launch (Delta became the first US-licensed commercial vehicle in 1989; the Commercial Space Act passed in 1998), but these efforts stayed marginal because the subsidized, government-run shuttle took the government's missions and most of the funding.",
       "passage": "Government efforts to spark new efficiency and innovation were being squashed by the primacy the government gave to its own vehicles.",
       "questions": [
         {
+          "id": "early-commercialization-blocked/1",
           "level": "comprehension",
-          "prompt": "Policies endorsing commercial launch date from the 1980s. Why did they have so little effect before the 2000s?",
-          "answer": "The subsidized shuttle kept the government's missions",
+          "prompt": "Reagan-era policies endorsed commercial launch, and private rockets were flying by 1989. Why did they stay marginal until the 2000s?",
+          "answer": "The subsidized shuttle kept the government's business",
+          "why": "As Wayne Eleazer put it, nothing stopped anyone competing with the shuttle except a heavily subsidized government competitor that would grab 100% of government missions.",
           "distractors": [
-            "No private company managed to build a working orbital rocket",
-            "Insurers refused to cover commercially launched satellites",
-            "The laws only allowed commercial launches from foreign sites"
-          ],
-          "explanation": "Private rockets did fly, starting with Delta in 1989. As Wayne Eleazer put it, nothing stopped competitors except 'a well-funded, heavily-subsidized, government-run competitor'."
+            { "text": "Federal law barred companies from competing with NASA", "why": "Eleazer's point is the opposite: nothing legally prevented it. The barrier was economic." },
+            { "text": "Policy let companies launch only commercial satellites", "why": "The Reagan measures specifically created pathways for companies to launch government satellites." },
+            { "text": "No company had yet built a working orbital rocket", "why": "McDonnell Douglas's Delta became the first US-licensed commercial vehicle in 1989, and three others soon followed." }
+          ]
         }
       ]
     },
     {
       "id": "aldridge-commission",
-      "statement": "After Columbia, the Aldridge Commission (2004) said NASA must be transformed: buy services from competing private firms instead of owning and operating everything, and limit its own role to what only government can do. This became law in the Commercial Space Launch Amendments Act of 2004.",
       "importance": 3,
+      "statement": "After Columbia, the Aldridge Commission (2004) said NASA must be transformed: buy services from competing private firms instead of owning and operating everything, and limit its own role to what only government can do. Congress wrote this business-first approach into law in 2004.",
       "passage": "NASA's role \"must be limited to only those areas where there is irrefutable demonstration that only government can perform the proposed activity.\"",
       "questions": [
         {
+          "id": "aldridge-commission/1",
           "level": "recall",
-          "prompt": "What limit did the Aldridge Commission say should apply to NASA's own role?",
-          "answer": "Only activities that demonstrably only government can perform",
+          "prompt": "The Aldridge Commission in 2004 proposed a test for what NASA should keep doing itself. What was it?",
+          "answer": "Only what it's demonstrated only government can do",
+          "why": "NASA's role 'must be limited to only those areas where there is irrefutable demonstration that only government can perform the proposed activity'. It was meant to be restrictive, and Congress wrote the business-first approach into law that year.",
           "distractors": [
-            "Only crewed missions, leaving robotic science to industry",
-            "Only missions beyond Earth orbit, leaving low orbit to industry",
-            "Only research, leaving all hardware development to industry"
-          ],
-          "explanation": "The test was whether there is 'irrefutable demonstration that only government can perform the proposed activity'. It is a principle, not a fixed list of mission types."
+            { "text": "Only research and design, leaving manufacturing to industry", "why": "Close to the old model: about 90% of the work was already contracted out, with NASA controlling the design. The commission wanted companies designing and owning their vehicles." },
+            { "text": "Only missions beyond Earth orbit", "why": "No geographic line was drawn. The test was a principle about what only government can do." },
+            { "text": "Only human spaceflight", "why": "No mission-type line was drawn. The test was a principle about what only government can do." }
+          ]
         },
         {
+          "id": "aldridge-commission/2",
           "level": "comprehension",
-          "prompt": "The Aldridge Commission considered recommending that some NASA centers be closed, then dropped it. Why?",
-          "answer": "It would have been politically fatal to the whole report",
+          "prompt": "The Aldridge Commission considered recommending that some NASA centers close, then dropped it. Why?",
+          "answer": "It would have sunk the whole report politically",
+          "why": "Chairman Edward Aldridge said the report 'would probably have burned on the first day'. A live example of the concentrated-interest pressure the chapter describes.",
           "distractors": [
-            "Analysis showed the centers were already running efficiently",
-            "The centers were needed to build the Constellation rockets",
-            "Closing them required a constitutional change to NASA's charter"
-          ],
-          "explanation": "Chairman Edward Aldridge said the report 'would probably have burned on the first day'. It illustrates the concentrated-interest pressure the chapter describes."
+            { "text": "The centers were needed for Constellation", "why": "Constellation came after the report. The obstacle was political." },
+            { "text": "Its review found the centers ran efficiently", "why": "The commission found NASA inefficient and said it needed to be leaner." },
+            { "text": "NASA's structure was outside its mandate", "why": "It explicitly said NASA's organizational structure must be decisively transformed." }
+          ]
         }
       ]
     },
     {
       "id": "constellation-vs-cots",
-      "statement": "Two approaches to the post-shuttle gap ran in parallel. Constellation was the primary plan: a large, government-owned, Apollo-style program ('Apollo on steroids'). COTS was a small ($500 million) commercial experiment to have private companies develop ISS cargo vehicles.",
       "importance": 3,
+      "statement": "Two approaches to the post-shuttle gap ran in parallel. Constellation was the primary plan: a large, government-owned, Apollo-style program ('Apollo on steroids'), canceled in 2010. COTS was a small ($500 million) commercial program paying companies to develop ISS cargo vehicles. CRS later bought deliveries; Commercial Crew extended the model to astronauts.",
       "passage": "The primary plan was called Constellation, an expansive (and expensive) new program in the Apollo model.",
       "questions": [
         {
+          "id": "constellation-vs-cots/1",
           "level": "recall",
-          "prompt": "NASA Administrator Michael Griffin described which program as 'Apollo on steroids'?",
-          "answer": "Constellation",
+          "prompt": "NASA ran several programs with similar names. Which one paid companies to develop new rockets and cargo vehicles, as opposed to buying deliveries?",
+          "answer": "COTS",
+          "why": "COTS funded development of cargo vehicles for the ISS. CRS followed, buying routine deliveries; Commercial Crew extended the model to astronauts.",
           "distractors": [
-            "COTS",
-            "Commercial Crew",
-            "The Vision for Space Exploration"
-          ],
-          "explanation": "Constellation was the government-owned program with a Saturn V-class rocket, a lunar lander and a crew rocket. The Vision for Space Exploration was the policy goal it was meant to serve."
+            { "text": "CRS", "why": "The follow-on to COTS. It bought routine cargo deliveries: twelve from SpaceX and eight from Orbital." },
+            { "text": "Commercial Crew", "why": "Extended the COTS model to astronauts, leading to SpaceX's 2020 crew flight." },
+            { "text": "Constellation", "why": "Not commercial at all: a government-owned, Apollo-style program." }
+          ]
         },
         {
-          "level": "comprehension",
-          "prompt": "How did COTS differ from Constellation in who would own the vehicles?",
-          "answer": "COTS vehicles were company-owned. Constellation's were not",
-          "distractors": [
-            "Both were government-owned, but COTS used smaller contractors",
-            "Both were company-owned, but only Constellation carried crew",
-            "COTS vehicles were jointly owned by NASA and its partners"
-          ],
-          "explanation": "Every Constellation asset would be owned and operated by the government. Under COTS, companies designed and owned their vehicles and NASA bought a service."
-        },
-        {
+          "id": "constellation-vs-cots/2",
           "level": "recall",
-          "prompt": "What was the specific job the COTS program asked private companies to do?",
-          "answer": "Develop vehicles to carry cargo to the ISS",
+          "prompt": "What was the Constellation program?",
+          "answer": "A government-owned, Apollo-style rocket and lander program",
+          "why": "NASA Administrator Michael Griffin called it 'Apollo on steroids'. It ran in parallel with COTS, went over budget and behind schedule, and was canceled in 2010.",
           "distractors": [
-            "Carry NASA astronauts to the ISS",
-            "Build a replacement for the space shuttle orbiter",
-            "Launch NASA's science satellites at lower cost"
-          ],
-          "explanation": "COTS was deliberately narrow: cargo to the ISS. Crew came later, under the Commercial Crew program that COTS's success made possible."
+            { "text": "A follow-on to COTS extending commercial contracts to deep space", "why": "Constellation was the government-owned alternative to COTS, not an extension of it." },
+            { "text": "Bush's 2004 plan to return to the Moon and go on to Mars", "why": "That's the Vision for Space Exploration. Constellation was the program built to carry it out." },
+            { "text": "A program funding companies to build crew vehicles for the ISS", "why": "That's Commercial Crew." }
+          ]
         }
       ]
     },
     {
       "id": "far-cost-plus",
-      "statement": "Under traditional FAR contracting, NASA paid contractors cost-plus: their total costs plus a guaranteed profit margin. It existed to insulate companies from the technical and policy risk of ambitious space projects, and about 90% of space program work was contracted this way.",
       "importance": 3,
+      "statement": "Under traditional FAR contracting, NASA paid contractors cost-plus: their total costs plus a guaranteed profit margin. It existed to insulate companies from the technical and policy risk of ambitious space projects, and about 90% of space program work was contracted this way.",
       "passage": "By guaranteeing that private companies' costs would be covered, plus a margin, FAR made it possible for NASA to contract out much of its equipment needs.",
       "questions": [
         {
+          "id": "far-cost-plus/1",
           "level": "recall",
-          "prompt": "Under a cost-plus contract, what does the government pay the contractor?",
-          "answer": "All its costs, plus an additional amount for profit",
+          "prompt": "Under a traditional cost-plus contract, what does the government pay?",
+          "answer": "All its costs, plus a profit margin",
+          "why": "Under FAR cost-plus, the government covers total cost and adds an amount for profit. About 90% of space program work was contracted this way.",
           "distractors": [
-            "A fee agreed in advance, whatever the work ends up costing",
-            "Its costs up to a cap, with overruns shared equally",
-            "A base fee plus bonuses for hitting schedule milestones"
-          ],
-          "explanation": "Cost-plus reimburses total cost and adds a margin. The first distractor describes fixed-price, the model COTS switched to."
+            { "text": "A set fee for the service, whatever it costs", "why": "That's fixed-price, the model COTS switched to." },
+            { "text": "Fixed payments as each milestone is met", "why": "That's how COTS paid. Kistler lost its contract by missing milestones." },
+            { "text": "Its costs, with no profit on top", "why": "Cost-plus adds a guaranteed margin on top of costs. That guarantee is why firms had little reason to cut costs." }
+          ]
         },
         {
+          "id": "far-cost-plus/2",
           "level": "comprehension",
-          "prompt": "Cost-plus contracting 'was not an accident'. What problem was it designed to solve?",
-          "answer": "Shielding firms from the risk of uncertain projects",
+          "prompt": "The authors say cost-plus contracting 'was not an accident'. What problem was it designed to solve?",
+          "answer": "Shielding firms from risky, uncertain projects",
+          "why": "Space hardware needed huge up-front investment amid technical and policy uncertainty. Guaranteeing costs plus a margin made firms willing to take the work.",
           "distractors": [
-            "Stopping contractors from underbidding to win work",
-            "Giving small new companies a way into the industry",
-            "Making sure the government owned what it paid for"
-          ],
-          "explanation": "Space hardware needed huge up-front investment with technical and policy uncertainty. Guaranteeing costs made firms willing to take the work. It was hard on small entrants, which is one of the criticisms."
+            { "text": "Protecting the government from contractor abuse", "why": "That was the job of FAR's oversight provisions, layered on top. The cost guarantee itself was about risk." },
+            { "text": "Ensuring the government owned what it paid for", "why": "FAR did give the government the IP, but that wasn't the purpose of reimbursing costs." },
+            { "text": "Keeping Apollo-era jobs in key districts", "why": "Jobs pressure shaped many decisions, but cost-plus was designed to make risky work contractable." }
+          ]
         }
       ]
     },
     {
       "id": "far-criticisms",
-      "statement": "Criticisms of FAR cost-plus contracting: guaranteed margins gave firms weak incentives to control cost, heavy oversight and documentation burdened new entrants most, and the government took ownership of the technology and intellectual property.",
       "importance": 3,
+      "statement": "Criticisms of FAR cost-plus contracting: guaranteed margins gave firms weak incentives to control cost; heavy oversight and documentation burdened new entrants most; and the government took ownership of the technology and intellectual property.",
       "passage": "under FAR contracts, firms had weak incentives to keep costs down and pursue efficiencies, since their margins were guaranteed",
       "questions": [
         {
+          "id": "far-criticisms/1",
           "level": "comprehension",
           "prompt": "Why did cost-plus contracts give firms weak incentives to keep costs down?",
-          "answer": "Their margin was guaranteed on top of whatever they spent",
+          "answer": "Their margin was guaranteed on any spending",
+          "why": "If every dollar of cost is reimbursed with a margin on top, spending less earns the firm nothing.",
           "distractors": [
-            "They were barred from keeping any savings they found",
-            "NASA's specifications left no room to change the design",
-            "Their contracts were renewed automatically each year"
-          ],
-          "explanation": "If every dollar of cost is reimbursed with a margin on top, spending less earns the firm nothing."
+            { "text": "NASA's oversight made design changes slow", "why": "Heavy oversight was a real burden, but it's a separate criticism from the incentive problem." },
+            { "text": "The government owned the technology they built", "why": "A real criticism of FAR, but it weakened the incentive to build a wider business, not to cut costs." },
+            { "text": "NASA dictated the specs", "why": "True under FAR, but firms could still cut costs within a spec. With a guaranteed margin they had no reason to." }
+          ]
         },
         {
+          "id": "far-criticisms/2",
           "level": "comprehension",
           "prompt": "Why did FAR contracting weigh hardest on young, small space companies?",
-          "answer": "They lacked the staff to handle its paperwork",
+          "answer": "They lacked the staff for the paperwork",
+          "why": "FAR brought heavy requirements, documentation and supervision. Incumbents had the administrative infrastructure to absorb that; new entrants didn't.",
           "distractors": [
-            "They were legally excluded from bidding on FAR contracts",
-            "They were paid lower margins than established contractors",
-            "They had to post large bonds before starting any work"
-          ],
-          "explanation": "FAR brought heavy requirements, documentation and supervision. Incumbents had the back-office infrastructure to absorb that, and new entrants did not."
+            { "text": "Fixed prices exposed them to cost overruns", "why": "Reversed. That's the COTS model. Under cost-plus, overruns were reimbursed." },
+            { "text": "They had to raise private capital to qualify", "why": "That's COTS: Kistler lost its contract after failing to raise outside capital." },
+            { "text": "Its margins were too thin to sustain a startup", "why": "The margin was guaranteed on all costs. The burden was administrative." }
+          ]
         }
       ]
     },
     {
       "id": "fixed-price",
-      "statement": "COTS used fixed-price contracts: NASA pays a set fee for a service. Financial risk shifts to the company, and the company profits by keeping its costs below the fee, which brings in the efficiency incentives of commercial markets.",
       "importance": 3,
+      "statement": "COTS used fixed-price contracts: NASA pays a set fee for a service. Financial risk shifts to the company, and the company profits by keeping its costs below the fee, which brings in the efficiency incentives of commercial markets.",
       "passage": "It puts the financial risk on the private companies, but the more that companies can keep their costs below that fee, the more they profit.",
       "questions": [
         {
+          "id": "fixed-price/1",
           "level": "comprehension",
-          "prompt": "Compared with cost-plus, what does a fixed-price contract change about who bears financial risk?",
-          "answer": "The company bears overruns and keeps any savings",
+          "prompt": "Compared with cost-plus, how does a fixed-price contract handle cost overruns and savings?",
+          "answer": "The company absorbs overruns and keeps savings",
+          "why": "With a set fee, every dollar of overrun comes out of the company's pocket and every dollar saved is profit. That's the efficiency incentive COTS brought in.",
           "distractors": [
-            "The government bears overruns but the company keeps savings",
-            "Overruns and savings are split between the two",
-            "The government bears overruns and recovers any savings"
-          ],
-          "explanation": "A set fee means the company absorbs cost overruns and profits from efficiency. The last distractor is roughly how cost-plus works."
-        },
-        {
-          "level": "application",
-          "prompt": "A company on a fixed-price contract finds a cheaper way to build its vehicle. What happens to the savings?",
-          "answer": "The company keeps them as profit",
-          "distractors": [
-            "NASA's payment is reduced by the amount saved",
-            "They are split according to a preset formula",
-            "They must be reinvested in the same program"
-          ],
-          "explanation": "The fee is fixed, so every dollar saved is margin. That is the incentive the model was chosen to create.",
-          "reasoning": true
+            { "text": "Government covers overruns; company keeps savings", "why": "That would remove the risk and keep the reward. No contract in the chapter works that way." },
+            { "text": "Overruns and savings are split between them", "why": "That's cost-sharing, not fixed-price." },
+            { "text": "Government covers overruns and recaptures savings", "why": "Roughly how cost-plus works: costs are reimbursed, so savings only lower the bill." }
+          ]
         }
       ]
     },
     {
       "id": "insight-not-oversight",
-      "statement": "Under COTS, NASA offered 'insight rather than oversight'. Heavy oversight was necessary under cost-plus because firms had an incentive to inflate costs. Fixed-price removed that incentive, so NASA could give companies design freedom while still sharing its expertise.",
       "importance": 3,
+      "statement": "Under COTS, NASA offered 'insight rather than oversight'. Heavy oversight was necessary under cost-plus because firms had an incentive to inflate costs. Fixed-price removed that incentive, so NASA could give companies design freedom while still sharing its expertise.",
       "passage": "oversight was imperative in a cost-plus approach where companies had every incentive to inflate costs",
       "questions": [
         {
+          "id": "insight-not-oversight/1",
           "level": "comprehension",
-          "prompt": "Why was NASA able to relax its oversight of companies under COTS?",
-          "answer": "Fixed-price removed the incentive to inflate costs",
+          "prompt": "Heavy oversight was standard under cost-plus. Why was it no longer necessary under COTS?",
+          "answer": "Fixed prices removed the incentive to inflate costs",
+          "why": "Oversight was imperative when companies had every incentive to inflate costs. Under a fixed price, padding only hurts the company, so NASA could offer insight (its engineers' expertise) rather than oversight.",
           "distractors": [
-            "Cargo missions carried no risk to human life",
-            "Congress had cut the staff who performed oversight",
-            "The COTS companies had proven track records with NASA"
-          ],
-          "explanation": "Oversight guards against cost padding. Once the fee is fixed, padding only hurts the company, so the main reason for intrusive oversight disappears. The COTS winners were young, unproven firms."
-        },
-        {
-          "level": "recall",
-          "prompt": "Under COTS, what did NASA say it wanted to provide its partners in place of oversight?",
-          "answer": "Insight: its engineers' expertise and experience",
-          "distractors": [
-            "Indemnity: legal cover if a launch failed",
-            "Infrastructure: free use of its launch sites",
-            "Investment: an equity stake in each company"
-          ],
-          "explanation": "'Insight rather than oversight'. NASA's scientists and engineers shared what they knew without dictating the design."
+            { "text": "Space Act Agreements didn't require it", "why": "The agreements made the change legally possible. The reason oversight was no longer needed is the fixed price." },
+            { "text": "Companies kept their IP", "why": "IP retention was about NASA being one customer among many." },
+            { "text": "Two competing providers kept each other honest", "why": "NASA kept two providers as a hedge in case the approach stumbled, not as a substitute for oversight." }
+          ]
         }
       ]
     },
     {
       "id": "one-customer-among-many",
-      "statement": "Under COTS, NASA aimed to be 'one customer among many'. The clearest signal was letting companies keep the intellectual property for what they developed, so they could sell the same vehicles to other customers.",
       "importance": 3,
+      "statement": "Under COTS, NASA aimed to be 'one customer among many'. The clearest signal was letting companies keep the intellectual property for what they developed, so they could sell the same vehicles to other customers.",
       "passage": "NASA explicitly sought to be just \"one customer among many\" for its COTS partners, a goal made manifest by its allowing companies to keep the intellectual property rights to their new technologies.",
       "questions": [
         {
-          "level": "recall",
-          "prompt": "Which COTS feature most clearly showed that NASA wanted to be 'one customer among many'?",
-          "answer": "Companies kept the intellectual property they developed",
-          "distractors": [
-            "NASA capped its purchases at half of each company's launches",
-            "Companies were required to sign a second customer first",
-            "NASA paid only after each delivery was completed"
-          ],
-          "explanation": "Under FAR the government owned the technology. Letting companies keep their IP meant they could build a business beyond NASA."
-        },
-        {
+          "id": "one-customer-among-many/1",
           "level": "comprehension",
-          "prompt": "Why did it matter to NASA that its COTS partners could find other customers?",
-          "answer": "A wider market spreads costs and sustains the providers",
+          "prompt": "NASA wanted to be 'one customer among many' for its COTS partners. Which feature do the authors single out as making that goal real?",
+          "answer": "Letting companies keep their own IP",
+          "why": "Under the old rules the government took ownership of the technology, so a company had nothing to sell anyone else. Keeping the IP let SpaceX sell Falcon 9 launches to commercial customers.",
           "distractors": [
-            "It let NASA collect royalties on each commercial launch",
-            "It was a legal condition of using Space Act Agreements",
-            "It let NASA walk away once the ISS was complete"
-          ],
-          "explanation": "The stated goal of COTS was to 'open new space markets' while meeting ISS needs. Providers with other revenue are healthier and cheaper for NASA to buy from. NASA took no royalties.",
-          "reasoning": true
-        }
-      ]
-    },
-    {
-      "id": "space-act-agreements",
-      "statement": "COTS avoided the FAR process by using Space Act Agreements, based on the 'other transactions' authority in NASA's founding act of 1958.",
-      "importance": 1,
-      "passage": "it relied on NASA's authority to initiate \"other transactions,\" granted to it in its founding act of 1958, to avoid using the FAR process and enter instead into much less burdensome Space Act Agreements",
-      "questions": [
-        {
-          "level": "recall",
-          "prompt": "What legal instrument let COTS sidestep the standard FAR contracting process?",
-          "answer": "Space Act Agreements",
-          "distractors": [
-            "The Commercial Space Act of 1998",
-            "A presidential executive order",
-            "A waiver granted by the Aldridge Commission"
-          ],
-          "explanation": "NASA used the 'other transactions' authority it has had since its founding act of 1958. No new legislation was needed."
+            { "text": "Paying a fixed price, not reimbursing costs", "why": "A key COTS feature, but it's about efficiency incentives, not other customers." },
+            { "text": "Funding two competing providers", "why": "A hedge against failure, not a route to other customers." },
+            { "text": "Using Space Act Agreements, not FAR", "why": "The legal vehicle for COTS, not what made the goal real." }
+          ]
         }
       ]
     },
     {
       "id": "kistler-termination",
-      "statement": "The first COTS awards (2006) went to SpaceX and Rocketplane Kistler. When Kistler failed to raise private capital and missed milestones, NASA terminated its contract and Orbital Sciences took it over, showing NASA would act as a real customer.",
       "importance": 2,
+      "statement": "The first COTS awards (2006) went to SpaceX and Rocketplane Kistler. Kistler failed to raise enough private capital, missed milestones and lost its contract to Orbital Sciences, showing NASA would act as a real customer. SpaceX raised slightly more privately than NASA put in.",
       "passage": "It began missing milestones, and NASA terminated its contract. The agency, it appeared, was taking its new role as a customer seriously.",
       "questions": [
         {
+          "id": "kistler-termination/1",
           "level": "comprehension",
-          "prompt": "What did NASA's handling of Rocketplane Kistler demonstrate about the COTS approach?",
-          "answer": "NASA would drop a partner that missed its milestones",
+          "prompt": "Rocketplane Kistler was one of the first two COTS winners and lost its contract. What went wrong?",
+          "answer": "It couldn't raise enough private capital",
+          "why": "Kistler couldn't raise enough outside money to fund development, began missing milestones, and NASA terminated the contract. Orbital Sciences took it over. NASA was acting like a real customer.",
           "distractors": [
-            "NASA would add funding to rescue a struggling partner",
-            "Small companies could not survive on fixed-price contracts",
-            "NASA preferred established contractors after all"
-          ],
-          "explanation": "Kistler could not raise enough private capital, missed milestones and was terminated. Under the old model a failing program would more likely have been given more money."
+            { "text": "Its costs overran the fixed price", "why": "It was behind schedule, not over a price cap. The root cause was a lack of private capital." },
+            { "text": "Its rocket failed repeatedly in tests", "why": "That was SpaceX, which was blowing up rockets at an alarming rate and still completed all its milestones." },
+            { "text": "NASA consolidated funding behind SpaceX", "why": "NASA gave Kistler's contract to Orbital Sciences, keeping two providers." }
+          ]
         },
         {
+          "id": "kistler-termination/2",
           "level": "recall",
-          "prompt": "Roughly how much of SpaceX's costs during COTS did NASA's funding cover?",
-          "answer": "Slightly less than half",
+          "prompt": "Who paid for most of SpaceX's costs during COTS?",
+          "answer": "Private investors, a bit more than NASA",
+          "why": "NASA put in nearly $400 million, slightly less than half. SpaceX raised just over $450 million privately, including $100 million from Musk. Companies were expected to bring their own capital, which is where Kistler failed.",
           "distractors": [
-            "About a tenth",
-            "About three quarters",
-            "Nearly all of it"
-          ],
-          "explanation": "NASA put in nearly $400 million and SpaceX raised just over $450 million privately. Companies were expected to bring their own capital, which is what Kistler failed to do."
+            { "text": "NASA, covering nearly all of it", "why": "NASA's share was slightly less than half." },
+            { "text": "Elon Musk, personally", "why": "Musk put in $100 million of the roughly $450 million raised privately." },
+            { "text": "NASA, through later CRS contracts", "why": "CRS paid for deliveries afterward. Development was roughly split between NASA and private money." }
+          ]
         }
       ]
     },
     {
       "id": "constellation-cancelled",
-      "statement": "Constellation ran over cost and behind schedule and was canceled under Obama in 2010, with NASA deputy administrator Lori Garver the leading advocate for the commercial path. Opponents argued that trusting companies with cargo was optimistic and with crew irresponsible, and that tens of thousands of jobs were at stake.",
       "importance": 2,
-      "passage": "relying on the private sector to bring cargo to the ISS would be overly optimistic; relying on it (some day in the future) to deliver crew, NASA's most precious cargo, would be irresponsible",
+      "statement": "Constellation ran over cost and behind schedule and was canceled under Obama in 2010. Lori Garver argued that handing routine work to companies would free NASA for more consequential work. Obama framed the new approach as buying space transportation as a service rather than owning the vehicles.",
+      "passage": "By buying the services of space transportation—rather than the vehicles themselves—we can continue to ensure rigorous safety standards are met.",
       "questions": [
         {
-          "level": "comprehension",
-          "prompt": "What was the main argument made against canceling Constellation in favor of commercial providers?",
-          "answer": "If NASA couldn't make access cheap and safe, companies were unlikely to",
-          "distractors": [
-            "Commercial rockets would cost more per launch than Constellation",
-            "Private firms would refuse to share their designs with NASA",
-            "Foreign companies would end up winning the contracts"
-          ],
-          "explanation": "Skeptics pointed to NASA's decades of experience without a cheap, safe, reliable route to orbit and asked what the odds were that a company could do better. Jobs at NASA and its contractors were also at stake."
-        },
-        {
+          "id": "constellation-cancelled/1",
           "level": "comprehension",
           "prompt": "How did Lori Garver argue that commercialization would benefit NASA itself?",
-          "answer": "Companies doing routine work would free NASA for harder problems",
+          "answer": "Companies take routine work; NASA does harder things",
+          "why": "She argued NASA should stop competing with the private sector by doing the same thing over and over, and invest in work of greater relevance to taxpayers, like climate research, which got under 10% of its budget.",
           "distractors": [
-            "NASA could earn revenue by licensing its technology",
-            "NASA could shrink until it was only a regulator",
-            "Competition from companies would push NASA's own rockets to improve"
-          ],
-          "explanation": "Garver's case was that NASA should stop competing with the private sector on routine tasks and invest in work of greater relevance to taxpayers, such as climate research."
+            { "text": "Commercial vehicles would turn out safer than NASA's", "why": "The promise was that rigorous safety standards would still be met, not exceeded." },
+            { "text": "Competition would push down Constellation's costs", "why": "Garver wanted Constellation canceled, not competed." },
+            { "text": "NASA could shrink into a regulator of private launch", "why": "She wanted NASA investing in consequential research, not reduced to oversight." }
+          ]
+        },
+        {
+          "id": "constellation-cancelled/2",
+          "level": "comprehension",
+          "prompt": "In his 2010 speech, what did Obama describe as the core of the new approach?",
+          "answer": "Buy transportation as a service, not the vehicles",
+          "why": "'By buying the services of space transportation, rather than the vehicles themselves', companies would compete and innovate faster while NASA kept safety standards rigorous.",
+          "distractors": [
+            { "text": "Return to the Moon on a new heavy rocket", "why": "That was Constellation, which his administration canceled." },
+            { "text": "Let companies set their own safety standards", "why": "He said rigorous safety standards would still be met." },
+            { "text": "Back one commercial champion to replace the shuttle", "why": "NASA deliberately kept multiple providers." }
+          ]
         }
       ]
     },
     {
       "id": "cots-results",
-      "statement": "COTS cost NASA about $850 million, half the cost of a single shuttle launch, and produced two new orbital rockets and cargo vehicles (SpaceX's Falcon 9 and Dragon, Orbital's Antares and Cygnus). It led to Commercial Resupply Services contracts and seeded Commercial Crew.",
       "importance": 3,
+      "statement": "COTS cost NASA about $850 million, half the cost of a single shuttle launch, and produced two new orbital rockets and cargo vehicles (SpaceX's Falcon 9 and Dragon, Orbital's Antares and Cygnus). It led to Commercial Resupply Services contracts, kept two providers as a hedge, and seeded Commercial Crew.",
       "passage": "At a cost to NASA of $850 million—half the cost of a single shuttle launch—the agency had helped develop two new orbital rockets and cargo vehicles.",
       "questions": [
         {
+          "id": "cots-results/1",
           "level": "recall",
-          "prompt": "What did NASA get for the roughly $850 million it spent on COTS?",
+          "prompt": "What did NASA get for the roughly $850 million it spent on COTS, about half the cost of one shuttle launch?",
           "answer": "Two new orbital rockets and two cargo vehicles",
+          "why": "SpaceX's Falcon 9 and Dragon, and Orbital's Antares and Cygnus. NASA then bought routine deliveries separately, under CRS.",
           "distractors": [
-            "One rocket and a prototype crew capsule",
-            "Design studies and prototypes, but no orbital flights",
-            "Twenty cargo deliveries to the ISS"
-          ],
-          "explanation": "Falcon 9 with Dragon and Antares with Cygnus. The routine deliveries were bought separately under the larger Commercial Resupply Services contracts."
-        },
-        {
-          "level": "recall",
-          "prompt": "The authors compare the total cost of COTS to which benchmark?",
-          "answer": "Half the cost of a single shuttle launch",
-          "distractors": [
-            "One year of operating the ISS",
-            "The price of a single Soyuz seat",
-            "The entire development cost of the shuttle"
-          ],
-          "explanation": "$850 million against roughly $1.5 billion per shuttle launch."
-        },
-        {
-          "level": "comprehension",
-          "prompt": "Why did NASA keep two cargo providers under Commercial Resupply Services when one could have done the job?",
-          "answer": "As a hedge in case the new approach stumbled",
-          "distractors": [
-            "The law required every contract to have two suppliers",
-            "Neither company could launch often enough alone",
-            "Each company served a different part of the station"
-          ],
-          "explanation": "Two providers hedged the risk of relying on a new model. The same logic keeps competition alive between suppliers."
+            { "text": "Twenty cargo deliveries to the ISS", "why": "That's CRS: twelve SpaceX flights and eight Orbital, bought separately for about $3.5 billion." },
+            { "text": "A rocket able to carry astronauts to the ISS", "why": "Crew came later, under Commercial Crew, with the first flight in 2020." },
+            { "text": "One working rocket; Orbital's was never finished", "why": "Both succeeded. Orbital's Antares launched Cygnus to the ISS in 2013." }
+          ]
         }
       ]
     },
     {
       "id": "cots-commercial-legacy",
-      "statement": "COTS counted as an 'inflection point' because SpaceX began launching commercial satellites on the rockets developed under NASA contract. The benefit extended beyond the ISS, and NASA really was one customer among many.",
       "importance": 3,
+      "statement": "COTS counted as an 'inflection point' because SpaceX began launching commercial satellites on the rockets developed under NASA contract. The benefit extended beyond the ISS, and NASA really was one customer among many.",
       "passage": "SpaceX was beginning to launch commercial satellites with the rockets developed under contract with NASA.",
       "questions": [
         {
+          "id": "cots-commercial-legacy/1",
           "level": "comprehension",
           "prompt": "Beyond delivering cargo to the ISS, what made COTS an 'unqualified success' in the authors' telling?",
-          "answer": "Its rockets went on to launch commercial satellites",
+          "answer": "Its rockets went on to sell commercial launches",
+          "why": "Once SpaceX sold launches to commercial customers, NASA was truly one customer among many. NASA's money had created an industry capability, not just a supplier. That's why the authors call it an inflection point.",
           "distractors": [
-            "It finished ahead of its original schedule",
-            "It persuaded Congress to raise NASA's budget",
-            "Its rockets replaced Soyuz for crew flights within two years"
-          ],
-          "explanation": "The point of COTS was to open markets. Once SpaceX sold launches to commercial customers, NASA's investment had created an industry capability and not just a NASA supplier. The program took seven years, longer than hoped."
+            { "text": "It finished ahead of schedule", "why": "It took seven years, longer than first hoped." },
+            { "text": "It ended US dependence on Russia's Soyuz for crew", "why": "That came in 2020, with Commercial Crew. COTS was cargo only." },
+            { "text": "Its boosters were later reused", "why": "SpaceX first re-flew a booster in 2017. Reuse was built on COTS, but it isn't the measure the authors use." }
+          ]
         }
       ]
     },
     {
       "id": "reusability-2015",
-      "statement": "Reusable rockets became real in late 2015. Blue Origin's suborbital New Shepard crossed the Kármán line (100 km) and landed vertically in November. SpaceX's Falcon 9 landed its first stage after an orbital launch in December and first re-flew a used booster in 2017.",
       "importance": 3,
+      "statement": "Reusable rockets became real in late 2015. Blue Origin's suborbital New Shepard crossed the Kármán line (100 km) and landed vertically in November. SpaceX landed a Falcon 9 first stage after an orbital launch in December and first re-flew a used booster in 2017.",
       "passage": "SpaceX had successfully launched a (partially) reusable orbital rocket, a feat only matched by the space shuttles.",
       "questions": [
         {
+          "id": "reusability-2015/1",
           "level": "comprehension",
-          "prompt": "Blue Origin and SpaceX both landed rockets in late 2015. What was the key difference between the two feats?",
-          "answer": "Blue Origin's was suborbital. SpaceX's delivered a payload to orbit",
+          "prompt": "Blue Origin and SpaceX each landed a rocket in late 2015. What made SpaceX's the harder feat?",
+          "answer": "It came back from an orbital launch",
+          "why": "New Shepard went straight up past 100 km and came back down. Falcon 9's first stage landed after sending its upper stage and satellites on to orbit, a far harder problem.",
           "distractors": [
-            "Blue Origin's carried crew. SpaceX's was uncrewed",
-            "Blue Origin's landed at sea. SpaceX's landed on land",
-            "Blue Origin's was government-funded. SpaceX's was privately funded"
-          ],
-          "explanation": "New Shepard went straight up past 100 km and came back. Falcon 9's first stage returned after sending an upper stage and satellites to orbit, a much harder problem."
+            { "text": "Its booster landed on a drone ship at sea", "why": "Falcon 9's first stage flew back to land on the Florida coast." },
+            { "text": "The same booster flew again within weeks", "why": "Reversed. Blue Origin re-flew its booster five times in the next year; SpaceX didn't re-fly one until 2017." },
+            { "text": "It was carrying a crew capsule to the ISS", "why": "Neither carried crew. Falcon 9 was carrying communications satellites." }
+          ]
         },
         {
+          "id": "reusability-2015/2",
           "level": "recall",
           "prompt": "What is the Kármán line?",
-          "answer": "The standard boundary of space, at 100 km altitude",
+          "answer": "The standard boundary of space, 100 km up",
+          "why": "Crossing it is far easier than reaching orbit, which takes enormous horizontal speed. That's the gap between New Shepard's feat and Falcon 9's.",
           "distractors": [
-            "The altitude at which a stable orbit becomes possible",
-            "The upper edge of low Earth orbit, at 2,000 km",
-            "The point where Earth's gravity no longer dominates"
-          ],
-          "explanation": "100 kilometers up is the conventional boundary of space. Crossing it is far easier than reaching orbital velocity."
-        },
-        {
-          "level": "recall",
-          "prompt": "Which part of the Falcon 9 came back and landed in December 2015?",
-          "answer": "The first stage",
-          "distractors": [
-            "The upper stage",
-            "The whole rocket",
-            "The Dragon capsule"
-          ],
-          "explanation": "The first stage flipped, reignited and landed while the upper stage carried the satellites on to orbit. This is why the authors call it '(partially) reusable'."
+            { "text": "The altitude at which orbit becomes possible", "why": "Orbit depends on speed, not just altitude. Suborbital New Shepard crossed the line without orbiting." },
+            { "text": "The upper edge of low Earth orbit", "why": "Low Earth orbit sits well above the line; the ISS orbits around 400 km." },
+            { "text": "Where Earth's gravity stops dominating", "why": "Gravity at 100 km is nearly as strong as at the surface." }
+          ]
         }
       ]
     },
     {
       "id": "falcon9-cost-drop",
-      "statement": "Falcon 9 launches cost about $62 million, roughly $2,800 per kilogram, less than 5% of the shuttle's cost per kilogram. The drop triggered new satellite companies, new launch competitors and a surge of venture capital.",
       "importance": 3,
-      "passage": "A mere $62 million per launch, or roughly $2,800 per kilogram. That's less than 5 percent of what it cost the shuttle",
+      "statement": "Falcon 9 launches cost about $62 million, roughly $2,800 per kilogram, less than 5% of the shuttle's cost per kilogram (though the shuttle had far more capabilities). The drop triggered new satellite companies, new launch competitors and a surge of venture capital.",
+      "passage": "A mere $62 million per launch, or roughly $2,800 per kilogram. That's less than 5 percent of what it cost the shuttle (which, not coincidentally, was designed with far more capabilities).",
       "questions": [
         {
+          "id": "falcon9-cost-drop/1",
           "level": "recall",
-          "prompt": "How did Falcon 9's cost per kilogram to orbit compare with the shuttle's?",
-          "answer": "Less than 5% of the shuttle's",
+          "prompt": "How did Falcon 9's launch cost per kilogram compare with the shuttle's?",
+          "answer": "Under 5% of the shuttle's",
+          "why": "About $2,800 per kilogram against about $60,000, roughly twenty times cheaper, at about $62 million a launch.",
           "distractors": [
-            "About a quarter of the shuttle's",
-            "About half of the shuttle's",
-            "About 0.1% of the shuttle's"
-          ],
-          "explanation": "Roughly $2,800 per kilogram against about $60,000 for the shuttle, a reduction of around twenty times."
+            { "text": "About a quarter of the shuttle's", "why": "Far too high. The drop was about twentyfold." },
+            { "text": "About half of the shuttle's", "why": "Far too high. The drop was about twentyfold." },
+            { "text": "About 0.1% of the shuttle's", "why": "Too low. That would be about $60 per kilogram." }
+          ]
         },
         {
+          "id": "falcon9-cost-drop/2",
           "level": "comprehension",
-          "prompt": "The authors add a caveat when comparing Falcon 9's cost with the shuttle's. What is it?",
-          "answer": "The shuttle was designed with far more capabilities",
+          "prompt": "When comparing Falcon 9's cost with the shuttle's, what caveat do the authors add?",
+          "answer": "The shuttle had far more capabilities",
+          "why": "It had a cargo bay for satellite repair, an airlock, a robotic arm, and it carried crew. The authors say the cost gap is 'not coincidentally' related.",
           "distractors": [
-            "The Falcon 9 figure leaves out NASA's development funding",
-            "The shuttle figures are not adjusted for inflation",
-            "The Falcon 9 had flown too few times to be sure"
-          ],
-          "explanation": "The shuttle carried crew, an airlock, a robotic arm and a cargo bay for satellite repair. The comparison is fair on cost to orbit, but the vehicles did different jobs."
+            { "text": "Falcon 9 is only partially reusable", "why": "True, and the authors note it, but it isn't the caveat on the cost comparison." },
+            { "text": "The shuttle figure is in 2008 dollars", "why": "The authors adjust for that (nearly $90,000 today), which makes the gap bigger, not smaller." },
+            { "text": "Falcon 9 had flown too few times to judge", "why": "It was flying routinely, and reusing boosters from 2017." }
+          ]
         },
         {
-          "level": "application",
-          "prompt": "According to the chapter, what was the first-order effect of much cheaper and more available launch on the rest of the industry?",
-          "answer": "More satellite companies formed, with new ideas and technologies",
+          "id": "falcon9-cost-drop/3",
+          "level": "recall",
+          "prompt": "Which of these does the chapter NOT list as a result of Falcon 9's lower launch costs?",
+          "answer": "Governments cutting their own space budgets",
+          "why": "The chapter lists more satellite companies, new launch competitors and a surge of venture capital. Cheaper launch expanded the market.",
           "distractors": [
-            "Existing satellite makers consolidated into a few giants",
-            "Governments cut their own space budgets in response",
-            "Launch providers moved quickly into mining and manufacturing"
-          ],
-          "explanation": "Lower launch cost lowers the entry barrier for everything that rides on a rocket. More satellite firms, rival launchers and venture funding followed."
+            { "text": "More satellite companies forming", "why": "Listed: with lower costs and more launch availability, more satellite companies emerged." },
+            { "text": "New launch companies challenging SpaceX", "why": "Listed: other launch companies formed to challenge the new leader." },
+            { "text": "Venture capital pouring in", "why": "Listed: venture capital firms poured in funding at unprecedented scale." }
+          ]
         }
       ]
     },
     {
       "id": "commercial-crew-2020",
-      "statement": "In 2020 SpaceX carried two NASA astronauts to the ISS under the Commercial Crew program, closing the space access gap and making the commercial approach the default.",
       "importance": 2,
+      "statement": "In 2020 SpaceX carried two NASA astronauts to the ISS under the Commercial Crew program, closing the space access gap and making the commercial approach the default.",
       "passage": "Funded by the Commercial Crew program, SpaceX had defied the skeptics and closed the space access gap.",
       "questions": [
         {
+          "id": "commercial-crew-2020/1",
           "level": "recall",
           "prompt": "Which event closed the 'space access gap' that opened when the shuttle retired?",
           "answer": "SpaceX flying NASA astronauts to the ISS in 2020",
+          "why": "The gap was about crew. Astronauts rode Soyuz until the 2020 Commercial Crew flight.",
           "distractors": [
-            "A Dragon cargo capsule docking with the ISS in 2012",
-            "The first Falcon 9 booster landing in 2015",
-            "The first launch of the Falcon 9 in 2010"
-          ],
-          "explanation": "The gap was about crew. The 2012 docking restored US cargo access, but astronauts rode Soyuz until the 2020 Commercial Crew flight."
+            { "text": "A Dragon capsule docking with the ISS in 2012", "why": "That restored US cargo access, fulfilling COTS. Crew still rode Soyuz." },
+            { "text": "The first Falcon 9 booster landing in 2015", "why": "A milestone for reusability, not for crew access." },
+            { "text": "The first Falcon 9 launch in 2010", "why": "The rocket's debut. It carried neither cargo to the ISS nor crew." }
+          ]
         }
       ]
     },
     {
       "id": "first-welfare-theorem-space",
-      "statement": "The chapter's economic frame is the First Fundamental Theorem of Welfare Economics: markets are efficient when certain conditions hold. Public goods like security, prestige and basic science violate those conditions, which justified central control. As space ambitions shifted to activities where the conditions come closer to holding (such as routine transport), markets became the more efficient tool.",
       "importance": 3,
+      "statement": "The chapter's economic frame is the First Fundamental Theorem of Welfare Economics: markets are efficient when certain conditions hold. Public goods violate those conditions, which justified central control. Over time, central control's weaknesses made even public goods costly to pursue, and space ambitions shifted to activities where the conditions come closer to holding, so markets became the better tool. NASA kept the public-goods work.",
       "passage": "as our ambitions for space grew, we sought objectives for which the \"certain conditions\" of the 1FTWE come closer to holding; that is, for which markets would be more efficient",
       "questions": [
         {
+          "id": "first-welfare-theorem-space/1",
           "level": "comprehension",
-          "prompt": "In the authors' economic framing, what changed between the 1960s and the 2000s that made markets the better tool for space?",
-          "answer": "The goals shifted toward activities where market conditions nearly hold",
+          "prompt": "The authors give two reasons the shift from central control to markets made sense. Which pair?",
+          "answer": "Central control got costly; goals got market-friendly",
+          "why": "Missing prices, blunt incentives and slowing innovation made even public goods expensive to pursue. And as ambitions grew, they included activities where the theorem's 'certain conditions' come closer to holding.",
           "distractors": [
-            "Economists overturned the theory that had justified central control",
-            "Technology matured until rockets were no longer risky to build",
-            "Public goods like national security stopped mattering in space"
-          ],
-          "explanation": "The theory did not change. Central control fit public goods, where the theorem's conditions fail. Routine transport to orbit is closer to an ordinary tradable service. Public goods still matter, and NASA keeps those."
+            { "text": "The Soviet threat ended; NASA's budget shrank", "why": "Both happened, but they're context. The authors' argument is about where markets are efficient." },
+            { "text": "Shuttle disasters; public loss of interest in space", "why": "These forced the issue, but the authors justify the shift on economic grounds." },
+            { "text": "Rocket tech matured; private capital became available", "why": "Venture capital poured in after launch costs fell. In the chapter it's a result, not the reason." }
+          ]
         },
         {
+          "id": "first-welfare-theorem-space/2",
           "level": "comprehension",
           "prompt": "According to the closing section, what did COTS-style policies leave NASA free to concentrate on?",
-          "answer": "Exploration, prestige, international cooperation and basic research",
+          "answer": "Exploration, prestige, cooperation, basic research",
+          "why": "The division of labor is the point: markets for what markets do well, NASA as central actor for goals 'less suited to private actors'.",
           "distractors": [
-            "Regulating the safety of commercial launch providers",
-            "Designing the rockets that companies would then operate",
-            "Running a government fleet to compete with private launchers"
-          ],
-          "explanation": "The division of labor is the point: markets for what markets do well, and NASA as central actor for goals 'less suited to private actors'."
+            { "text": "Regulating the safety of commercial launch providers", "why": "Not what the authors list. They describe NASA's strengths as pursuing public goods." },
+            { "text": "Designing rockets for companies to operate", "why": "That's close to the old model that COTS replaced." },
+            { "text": "Running its own fleet for routine ISS transport", "why": "That's exactly what it handed to companies." }
+          ]
         },
         {
+          "id": "first-welfare-theorem-space/3",
           "level": "application",
+          "reasoning": true,
           "prompt": "By the chapter's framework, which condition would most justify keeping a space activity under central government control?",
           "answer": "Everyone benefits and no one can be charged for it",
+          "why": "That's the definition of a public good, where the theorem's conditions fail and a market would underprovide.",
           "distractors": [
-            "It needs very large amounts of up-front capital",
-            "It carries a high risk of technical failure",
-            "It has never been attempted by a private company"
-          ],
-          "explanation": "That is the definition of a public good, where the theorem's conditions fail. High capital needs and technical risk are things markets can handle, as SpaceX's privately raised funding showed.",
-          "reasoning": true
+            { "text": "It needs large up-front capital", "why": "SpaceX raised over $450 million privately during COTS. Markets can fund capital-heavy work." },
+            { "text": "It carries a high risk of technical failure", "why": "SpaceX blew up rockets at an alarming rate and still delivered under a fixed-price contract." },
+            { "text": "No private company has attempted it before", "why": "No company had built an ISS cargo vehicle before COTS either." }
+          ]
         }
       ]
     },
     {
       "id": "policy-mechanisms-summary",
-      "statement": "COTS and its follow-ons worked through four mechanisms: competition between private actors, prices reintroduced via fixed-price contracts, incentives for responsible risk-taking, and letting efficient companies keep the rewards.",
       "importance": 3,
+      "statement": "COTS and its follow-ons worked through four mechanisms: competition between private actors, prices reintroduced via fixed-price contracts, incentives for responsible risk-taking, and letting efficient companies keep the rewards.",
       "passage": "Carefully crafted policies like COTS and its follow-ons introduced competition between private actors, reintroduced prices through fixed-price contracts, incentivized responsible risk-taking, and allowed innovative and efficient companies to reap the rewards.",
       "questions": [
         {
+          "id": "policy-mechanisms-summary/1",
           "level": "comprehension",
+          "reasoning": true,
           "prompt": "Central control suffered from missing price signals. Which COTS feature addressed that weakness most directly?",
           "answer": "Fixed-price contracts",
+          "why": "The authors say COTS 'reintroduced prices through fixed-price contracts'. A set fee for a service is a price, and it reveals who can deliver for less.",
           "distractors": [
-            "Insight in place of oversight",
-            "Companies keeping their intellectual property",
-            "Use of Space Act Agreements"
-          ],
-          "explanation": "The authors say COTS 'reintroduced prices through fixed-price contracts'. A set fee for a service is a price, and it reveals who can deliver for less.",
-          "reasoning": true
+            { "text": "Insight in place of oversight", "why": "That followed from fixed prices, but it's about NASA's working relationship, not prices." },
+            { "text": "Companies keeping their intellectual property", "why": "That made NASA one customer among many. It addresses the market's breadth, not prices." },
+            { "text": "Use of Space Act Agreements", "why": "The legal vehicle that made the changes possible, not the mechanism itself." }
+          ]
         },
         {
+          "id": "policy-mechanisms-summary/2",
           "level": "application",
+          "reasoning": true,
           "prompt": "A space agency wants cheaper lunar cargo delivery. Which design is closest to the COTS model?",
-          "answer": "Pay several competing firms a set fee per milestone and let them own the landers",
+          "answer": "Several firms, fixed milestone fees, firms own landers",
+          "why": "COTS combined competition, fixed-price milestone payments and company ownership.",
           "distractors": [
-            "Pick the best firm, reimburse its costs and supervise its design closely",
-            "Have agency engineers design the lander and firms bid to build it",
-            "Fund one national champion and guarantee it all agency missions"
-          ],
-          "explanation": "COTS combined competition, fixed-price milestone payments and company ownership. The distractors are cost-plus with oversight, the traditional government-design model, and the shuttle's guaranteed monopoly.",
-          "reasoning": true
+            { "text": "Best firm picked, all costs reimbursed, design supervised", "why": "That's cost-plus with oversight, the FAR model." },
+            { "text": "Agency designs the lander and firms bid to build it", "why": "That's the traditional model: government sets the requirements, contractors implement." },
+            { "text": "One national champion, guaranteed all missions", "why": "That's the shuttle's monopoly pattern." }
+          ]
         }
       ]
     }
