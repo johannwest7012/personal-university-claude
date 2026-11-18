@@ -1,0 +1,22 @@
+{
+  "id": "space-to-grow",
+  "title": "Space to Grow: Unlocking the Final Economic Frontier",
+  "authors": ["Matthew Weinzierl", "Brendan Rosseau"],
+  "year": 2025,
+  "chapters": [
+    { "id": "space-to-grow/intro", "number": 0, "title": "Introduction: What Has Changed; Why It Matters" },
+    { "id": "space-to-grow/ch01", "number": 1, "title": "The Inflection Point: Crisis into Opportunity", "bank": "ch01.json", "readOnSeed": true },
+    { "id": "space-to-grow/ch02", "number": 2, "title": "Blue Origin: Step by Step" },
+    { "id": "space-to-grow/ch03", "number": 3, "title": "SpaceX: Launching the Market" },
+    { "id": "space-to-grow/ch04", "number": 4, "title": "Planet: Supply and Demand" },
+    { "id": "space-to-grow/ch05", "number": 5, "title": "Stations: Destinations in Space" },
+    { "id": "space-to-grow/ch06", "number": 6, "title": "Capital: Booms and Busts, Stags and Hares" },
+    { "id": "space-to-grow/ch07", "number": 7, "title": "Artemis: The New Model Goes to the Moon" },
+    { "id": "space-to-grow/ch08", "number": 8, "title": "Astroscale: The Tragedy of the Orbital Commons" },
+    { "id": "space-to-grow/ch09", "number": 9, "title": "Market Power: Preserving Competition and Innovation" },
+    { "id": "space-to-grow/ch10", "number": 10, "title": "Made in Space: Paid by NASA" },
+    { "id": "space-to-grow/ch11", "number": 11, "title": "Planetary Resources: Property Rights in Space" },
+    { "id": "space-to-grow/ch12", "number": 12, "title": "National Security: The Military-Celestial Complex" },
+    { "id": "space-to-grow/conclusion", "number": 13, "title": "Conclusion: The Next Chapter" }
+  ]
+}

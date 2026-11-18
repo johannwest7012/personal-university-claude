@@ -1,0 +1,20 @@
+{
+  "name": "personal-university",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node --no-warnings=ExperimentalWarning server/index.js",
+    "dev": "node --no-warnings=ExperimentalWarning --watch server/index.js",
+    "validate": "node scripts/validate-bank.mjs data/space-to-grow/ch01.json",
+    "test": "node --no-warnings=ExperimentalWarning --test test/*.test.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "1.10.0",
+    "@hono/node-server": "2.1.9",
+    "hono": "4.13.19",
+    "ts-fsrs": "5.4.2"
+  }
+}
