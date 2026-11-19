@@ -173,9 +173,7 @@ async function showLibrary() {
       const res = await fetch("/api/books", { method: "POST", body: form });
       const out = await res.json();
       if (!res.ok) throw new Error(out.error);
-      status.textContent = out.queued
-        ? `Found ${out.chapters} chapters. Writing questions for ${out.queued} of them in the background; this takes a few minutes per chapter.`
-        : `Found ${out.chapters} chapters, all of which already have questions.`;
+      status.textContent = `Found ${out.chapters} chapters. Questions for each are written when you check it off as read, and take a few minutes.`;
       setTimeout(() => run(showLibrary), 1500);
     } catch (err) {
       status.textContent = err.message;
@@ -252,8 +250,16 @@ function chapterView(ch) {
         run(showLibrary);
       } }, "Try again"),
       ch.error ? h("span", { class: "error-detail" }, ` (${ch.error})`) : null);
+  } else if (ch.hasText) {
+    detail = h("p", { class: "legend" },
+      "Questions are written when you check this off. ",
+      h("a", { href: "", onclick: async (e) => {
+        e.preventDefault();
+        await api(`/api/chapters/${encodeURIComponent(ch.id)}/generate`, {});
+        run(showLibrary);
+      } }, "Write now"));
   } else {
-    detail = h("p", { class: "legend" }, "No questions yet. Add this book's EPUB below to write them.");
+    detail = h("p", { class: "legend" }, "No text yet. Add this book's EPUB below.");
   }
 
   return h("div", { class: `chapter ${ch.read ? "is-read" : ""}` },

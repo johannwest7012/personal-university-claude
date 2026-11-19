@@ -4,7 +4,7 @@ import { strToU8, zipSync } from "fflate";
 import { openDb } from "../server/db.js";
 import { parseEpub } from "../server/epub.js";
 import { cleanBank, generateBank, startQueue } from "../server/generate.js";
-import { importBook } from "../server/library.js";
+import { importBook, queueChapter } from "../server/library.js";
 
 const para = (topic, n) => Array.from({ length: n }, (_, i) => `<p>Sentence ${i} about ${topic} explains why ${topic} matters to the argument.</p>`).join("");
 const page = (title, body) => `<?xml version="1.0"?><html xmlns="http://www.w3.org/1999/xhtml"><head><title>${title}</title></head><body><h1>${title}</h1>${body}</body></html>`;
@@ -53,11 +53,18 @@ test("passages that aren't verbatim and malformed questions are dropped", () => 
   assert.equal(dropped.length, 2);
 });
 
-test("an uploaded book is queued, generated, and its chapters can be marked read", async () => {
+test("chapters are written only when checked off or requested, and not twice", async () => {
   const db = openDb(":memory:");
   const out = importBook(db, makeEpub());
   assert.equal(out.sourceId, "test-book");
-  assert.equal(out.queued, 2);
+  assert.equal(out.queued, 0, "uploading writes nothing by itself");
+  assert.equal(db.prepare("SELECT COUNT(*) n FROM chapters WHERE gen_status IS NOT NULL").get().n, 0);
+
+  // Checking off a chapter queues it; "Write now" queues one that isn't checked off.
+  db.prepare("UPDATE chapters SET read_at = 'now' WHERE id = 'test-book/rockets'").run();
+  assert.equal(queueChapter(db, "test-book/rockets"), 1);
+  assert.equal(queueChapter(db, "test-book/rockets"), 0, "not queued twice");
+  assert.equal(queueChapter(db, "test-book/stations"), 1);
 
   // Stand-in for Claude: both passes return a bank quoting the chapter verbatim.
   const calls = [];
@@ -82,13 +89,16 @@ test("an uploaded book is queued, generated, and its chapters can be marked read
   ]);
   assert.equal(db.prepare("SELECT COUNT(*) n FROM questions WHERE concept_id LIKE 'test-book/rockets/%'").get().n, 3);
 
-  // Uploading again doesn't regenerate chapters that already have questions.
-  assert.equal(importBook(db, makeEpub()).queued, 0);
+  // Uploading again doesn't touch chapters that already have questions.
+  importBook(db, makeEpub());
+  assert.equal(queueChapter(db, "test-book/rockets"), 0);
 });
 
 test("generation failures are recorded for retry", async () => {
   const db = openDb(":memory:");
   importBook(db, makeEpub());
+  queueChapter(db, "test-book/rockets");
+  queueChapter(db, "test-book/stations");
   startQueue(db, async () => { throw new Error("overloaded"); });
   for (let i = 0; i < 50 && db.prepare("SELECT COUNT(*) n FROM chapters WHERE gen_status = 'failed'").get().n < 2; i++) {
     await new Promise((r) => setTimeout(r, 20));
@@ -106,4 +116,12 @@ test("generateBank sends the chapter to both passes", async () => {
   };
   await generateBank("Book", "Ch", "Text about orbital mechanics.", fake);
   assert.deepEqual(seen, [true, true]);
+});
+
+test("a chapter checked off before its book was uploaded is queued on upload", () => {
+  const db = openDb(":memory:");
+  db.prepare("INSERT INTO sources (id, title, authors) VALUES ('test-book', 'Test Book', 'A')").run();
+  db.prepare("INSERT INTO chapters (id, source_id, number, title, read_at) VALUES ('test-book/ch2', 'test-book', 2, 'Stations', 'now')").run();
+  assert.equal(importBook(db, makeEpub()).queued, 1);
+  assert.equal(db.prepare("SELECT gen_status FROM chapters WHERE id = 'test-book/ch2'").get().gen_status, "queued");
 });

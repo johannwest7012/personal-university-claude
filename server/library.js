@@ -4,6 +4,15 @@ import { tx } from "./db.js";
 
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60);
 
+// Queues question writing for a chapter that has text but no questions. Returns 1 if queued.
+export function queueChapter(db, id, { onlyIfRead = false } = {}) {
+  return Number(db.prepare(
+    `UPDATE chapters SET gen_status = 'queued', gen_error = NULL
+      WHERE id = ? AND has_bank = 0 AND text IS NOT NULL AND (gen_status IS NULL OR gen_status = 'failed')
+        ${onlyIfRead ? "AND read_at IS NOT NULL" : ""}`,
+  ).run(id).changes);
+}
+
 export function importBook(db, buffer) {
   const book = parseEpub(buffer);
   if (!book.sections.length) throw new Error("No chapters long enough to quiz on were found in this EPUB");
@@ -35,11 +44,10 @@ export function importBook(db, buffer) {
       db.prepare("UPDATE chapters SET number = ?, title = ?, text = ?, words = ? WHERE id = ?").run(
         i, section.title, section.text, section.words, id,
       );
-      // Chapters that already have questions keep them; everything else gets written.
-      const { changes } = db.prepare(
-        "UPDATE chapters SET gen_status = 'queued', gen_error = NULL WHERE id = ? AND has_bank = 0 AND (gen_status IS NULL OR gen_status = 'failed')",
-      ).run(id);
-      queued += changes;
+      // Questions are written chapter by chapter, when a chapter is checked off as read, so
+      // improvements to generation reach every chapter not yet read. A chapter already checked
+      // off before its text arrived is queued now.
+      queued += queueChapter(db, id, { onlyIfRead: true });
     });
 
     return { sourceId, title: book.title, chapters: book.sections.length, queued, skipped: book.skipped };

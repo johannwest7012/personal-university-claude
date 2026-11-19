@@ -10,7 +10,7 @@ import { openDb, syncLibrary, tx } from "./db.js";
 import { feedbackAvailable, getFeedback } from "./feedback.js";
 import { pickNext, rateAttempt, retrievability, target } from "./scheduler.js";
 import { pump, startQueue } from "./generate.js";
-import { importBook } from "./library.js";
+import { importBook, queueChapter } from "./library.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const db = openDb(process.env.DATABASE_PATH ?? join(root, "personal-university.db"));
@@ -83,7 +83,7 @@ app.use("*", async (c, next) => {
 });
 
 app.use("*", async (c, next) => {
-  const open =["/login.html", "/style.css", "/manifest.webmanifest", "/icon.svg", "/healthz"];
+  const open =["/login.html", "/style.css", "/manifest.webmanifest", "/icon.svg", "/apple-touch-icon.png", "/healthz"];
   if (!PASSWORD || open.includes(c.req.path) || getCookie(c, COOKIE) === sessionToken) return next();
   if (c.req.path.startsWith("/api/")) return c.json({ error: "unauthorized" }, 401);
   return c.redirect("/login.html");
@@ -241,17 +241,19 @@ app.post("/api/books", async (c) => {
   }
 });
 
+// "Write now" for a chapter not yet checked off, and "Try again" after a failure.
 app.post("/api/chapters/:id{.+}/generate", (c) => {
-  const { changes } = db.prepare(
-    "UPDATE chapters SET gen_status = 'queued', gen_error = NULL WHERE id = ? AND text IS NOT NULL AND gen_status = 'failed'",
-  ).run(c.req.param("id"));
+  const queued = queueChapter(db, c.req.param("id"));
   pump();
-  return c.json({ ok: changes > 0 });
+  return c.json({ ok: queued > 0 });
 });
 
 app.post("/api/chapters/:id{.+}/read", async (c) => {
   const { read } = await c.req.json();
-  db.prepare("UPDATE chapters SET read_at = ? WHERE id = ?").run(read ? new Date().toISOString() : null, c.req.param("id"));
+  const id = c.req.param("id");
+  db.prepare("UPDATE chapters SET read_at = ? WHERE id = ?").run(read ? new Date().toISOString() : null, id);
+  // Checking off a chapter is what triggers writing its questions.
+  if (read && queueChapter(db, id)) pump();
   return c.json({ ok: true });
 });
 
