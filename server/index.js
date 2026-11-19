@@ -9,6 +9,8 @@ import { getCookie, setCookie } from "hono/cookie";
 import { openDb, syncLibrary, tx } from "./db.js";
 import { feedbackAvailable, getFeedback } from "./feedback.js";
 import { pickNext, rateAttempt, retrievability, target } from "./scheduler.js";
+import { pump, startQueue } from "./generate.js";
+import { importBook } from "./library.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const db = openDb(process.env.DATABASE_PATH ?? join(root, "personal-university.db"));
@@ -215,11 +217,36 @@ app.get("/api/progress", (c) => {
         const n = db.prepare("SELECT COUNT(*) AS n, SUM(correct) AS right FROM attempts WHERE concept_id = ?").get(k.id);
         return { id: k.id, statement: k.statement, importance: k.importance, status, recall: r, attempts: n.n, correct: n.right ?? 0 };
       });
-      return { id: ch.id, number: ch.number, title: ch.title, hasBank: !!ch.has_bank, read: !!ch.read_at, concepts };
+      return {
+        id: ch.id, number: ch.number, title: ch.title, hasBank: !!ch.has_bank, read: !!ch.read_at, concepts,
+        status: ch.gen_status, error: ch.gen_error, hasText: ch.text != null,
+      };
     }),
   }));
   const totals = db.prepare("SELECT COUNT(*) AS n, SUM(correct) AS right FROM attempts").get();
   return c.json({ sources, totals: { attempts: totals.n, correct: totals.right ?? 0 } });
+});
+
+app.post("/api/books", async (c) => {
+  const body = await c.req.parseBody();
+  const file = body.file;
+  if (!file || typeof file === "string") return c.json({ error: "Choose an EPUB file" }, 400);
+  try {
+    const result = importBook(db, Buffer.from(await file.arrayBuffer()));
+    pump();
+    return c.json(result);
+  } catch (err) {
+    console.error("import failed", err);
+    return c.json({ error: `Couldn't read that book: ${err.message}` }, 400);
+  }
+});
+
+app.post("/api/chapters/:id{.+}/generate", (c) => {
+  const { changes } = db.prepare(
+    "UPDATE chapters SET gen_status = 'queued', gen_error = NULL WHERE id = ? AND text IS NOT NULL AND gen_status = 'failed'",
+  ).run(c.req.param("id"));
+  pump();
+  return c.json({ ok: changes > 0 });
 });
 
 app.post("/api/chapters/:id{.+}/read", async (c) => {
@@ -231,6 +258,7 @@ app.post("/api/chapters/:id{.+}/read", async (c) => {
 app.use("/*", serveStatic({ root: join(root, "public") }));
 
 const port = Number(process.env.PORT ?? 3000);
+startQueue(db);
 serve({ fetch: app.fetch, port }, () => {
   console.log(`Personal University on http://localhost:${port}`);
   if (!PASSWORD) console.warn("APP_PASSWORD is not set: the app is open to anyone who can reach it.");

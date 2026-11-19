@@ -60,10 +60,22 @@ CREATE INDEX IF NOT EXISTS attempts_concept ON attempts(concept_id, at);
 CREATE INDEX IF NOT EXISTS attempts_at ON attempts(at);
 `;
 
+// Columns added after the first deploy. SQLite has no ADD COLUMN IF NOT EXISTS.
+const MIGRATIONS = [
+  ["chapters", "text", "TEXT"],                 // plain text of an uploaded chapter
+  ["chapters", "words", "INTEGER"],
+  ["chapters", "gen_status", "TEXT"],           // NULL | queued | running | ready | failed
+  ["chapters", "gen_error", "TEXT"],
+];
+
 export function openDb(path) {
   const db = new DatabaseSync(path);
   db.exec("PRAGMA journal_mode = WAL; PRAGMA foreign_keys = ON;");
   db.exec(SCHEMA);
+  for (const [table, column, type] of MIGRATIONS) {
+    const has = db.prepare(`PRAGMA table_info(${table})`).all().some((c) => c.name === column);
+    if (!has) db.exec(`ALTER TABLE ${table} ADD COLUMN ${column} ${type}`);
+  }
   return db;
 }
 
@@ -102,12 +114,11 @@ export function syncLibrary(db, dataDir) {
         const hasBank = ch.bank ? 1 : 0;
         if (!existing) {
           db.prepare(
-            "INSERT INTO chapters (id, source_id, number, title, has_bank, read_at) VALUES (?, ?, ?, ?, ?, ?)",
-          ).run(ch.id, source.id, ch.number, ch.title, hasBank, ch.readOnSeed ? now : null);
-        } else {
-          db.prepare("UPDATE chapters SET number = ?, title = ?, has_bank = ? WHERE id = ?").run(
-            ch.number, ch.title, hasBank, ch.id,
-          );
+            "INSERT INTO chapters (id, source_id, number, title, has_bank, read_at, gen_status) VALUES (?, ?, ?, ?, ?, ?, ?)",
+          ).run(ch.id, source.id, ch.number, ch.title, hasBank, ch.readOnSeed ? now : null, hasBank ? "ready" : null);
+        } else if (hasBank) {
+          // Title and order may since have come from an uploaded EPUB; only record the bank.
+          db.prepare("UPDATE chapters SET has_bank = 1, gen_status = 'ready' WHERE id = ?").run(ch.id);
         }
         if (!ch.bank) continue;
         const bankPath = join(base, ch.bank);
@@ -120,7 +131,7 @@ export function syncLibrary(db, dataDir) {
   return seeds;
 }
 
-function loadBank(db, chapterId, bank) {
+export function loadBank(db, chapterId, bank) {
   const upsertConcept = db.prepare(
     `INSERT INTO concepts (id, chapter_id, ord, importance, statement, passage) VALUES (?, ?, ?, ?, ?, ?)
      ON CONFLICT(id) DO UPDATE SET ord = excluded.ord, importance = excluded.importance,

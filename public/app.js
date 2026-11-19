@@ -33,10 +33,10 @@ async function api(path, body) {
 }
 
 function topBar(left) {
-  const onProgress = location.hash === "#progress";
+  const onLibrary = location.hash === "#library";
   return h("header", { class: "top" },
     h("span", { class: "meta" }, left),
-    h("a", { href: onProgress ? "#" : "#progress" }, onProgress ? "Quiz" : "Progress"),
+    h("a", { href: onLibrary ? "#" : "#library" }, onLibrary ? "Quiz" : "Library"),
   );
 }
 
@@ -149,66 +149,116 @@ function showResult({ q, data, choice, text, result, options }) {
   next.focus({ preventScroll: true });
 }
 
-// ---------- Progress ----------
+// ---------- Library ----------
 
-async function showProgress() {
+let pollTimer;
+
+async function showLibrary() {
+  clearTimeout(pollTimer);
   const data = await api("/api/progress");
   const pct = data.totals.attempts ? Math.round((100 * data.totals.correct) / data.totals.attempts) : 0;
 
+  const fileInput = h("input", { type: "file", accept: ".epub,application/epub+zip", hidden: true, onchange: () => upload(fileInput.files[0]) });
+  const status = h("p", { class: "hint", hidden: true });
+  const addButton = h("button", { class: "btn quiet", type: "button", onclick: () => fileInput.click() }, "Add a book (EPUB)");
+
+  async function upload(file) {
+    if (!file) return;
+    addButton.disabled = true;
+    status.hidden = false;
+    status.textContent = `Reading ${file.name}…`;
+    const form = new FormData();
+    form.append("file", file);
+    try {
+      const res = await fetch("/api/books", { method: "POST", body: form });
+      const out = await res.json();
+      if (!res.ok) throw new Error(out.error);
+      status.textContent = out.queued
+        ? `Found ${out.chapters} chapters. Writing questions for ${out.queued} of them in the background; this takes a few minutes per chapter.`
+        : `Found ${out.chapters} chapters, all of which already have questions.`;
+      setTimeout(() => run(showLibrary), 1500);
+    } catch (err) {
+      status.textContent = err.message;
+      addButton.disabled = false;
+    }
+  }
+
   render(
-    topBar("Progress"),
-    h("p", { class: "sub" }, `${data.totals.attempts} answers so far, ${pct}% correct.`),
-    ...data.sources.map((s) => h("section", {},
+    topBar("Library"),
+    h("p", { class: "sub" }, `${data.totals.attempts} answers so far, ${pct}% correct. Check off chapters as you read them, and their questions join the mix.`),
+    ...data.sources.map((s) => h("section", { class: "book" },
       h("h1", {}, s.title.split(":")[0]),
       h("p", { class: "sub" }, s.authors),
       ...s.chapters.map(chapterView),
     )),
+    h("div", { class: "add-book" }, addButton, fileInput, status),
   );
+
+  // Keep generation status fresh while anything is being written.
+  const busy = data.sources.some((s) => s.chapters.some((c) => c.status === "queued" || c.status === "running"));
+  if (busy) pollTimer = setTimeout(() => location.hash === "#library" && run(showLibrary), 8000);
 }
 
 function chapterView(ch) {
   const live = ch.concepts.filter((c) => c.status !== "dropped");
   const count = (s) => live.filter((c) => c.status === s).length;
-  const toggle = h("button", {
-    class: `toggle ${ch.read ? "on" : ""}`,
-    type: "button",
-    disabled: !ch.hasBank && !ch.read,
-    title: ch.hasBank ? null : "Questions for this chapter haven't been generated yet",
-    onclick: async () => {
-      await api(`/api/chapters/${encodeURIComponent(ch.id)}/read`, { read: !ch.read });
-      run(showProgress);
+
+  const check = h("input", {
+    type: "checkbox",
+    checked: ch.read,
+    disabled: !ch.hasBank && !ch.hasText,
+    "aria-label": `I've read ${ch.title}`,
+    onchange: async () => {
+      check.disabled = true;
+      await api(`/api/chapters/${encodeURIComponent(ch.id)}/read`, { read: check.checked });
+      run(showLibrary);
     },
-  }, ch.read ? "Read ✓" : "Mark read");
+  });
 
-  const label = ch.number === 0 ? "Introduction" : ch.number === 13 ? "Conclusion" : `Chapter ${ch.number}`;
-  const head = h("div", { class: "chapter-head" },
-    h("div", { class: "chapter-title" }, ch.title.replace(/^(Introduction|Conclusion): /, ""), h("small", {}, label)),
-    toggle,
-  );
-  if (!ch.hasBank) return h("div", { class: "chapter" }, head, h("p", { class: "legend" }, "No questions yet"));
+  let detail;
+  if (ch.hasBank) {
+    const solid = count("solid");
+    const learning = count("learning");
+    const fading = count("fading");
+    const fresh = count("new");
+    const width = (n) => `width:${(100 * n) / Math.max(live.length, 1)}%`;
+    detail = ch.read
+      ? [
+          h("div", { class: "bar" },
+            h("span", { class: "s-solid", style: width(solid) }),
+            h("span", { class: "s-learning", style: width(learning) }),
+            h("span", { class: "s-fading", style: width(fading) })),
+          h("p", { class: "legend" }, `${solid} solid · ${learning} learning · ${fading} due · ${fresh} not yet asked`),
+          h("details", {},
+            h("summary", {}, `${live.length} ideas`),
+            h("ul", { class: "concepts" }, ch.concepts.map((c) =>
+              h("li", {},
+                h("span", { class: `dot ${c.status}`, title: c.status }),
+                h("span", {}, c.statement.split(/(?<=\.)\s/)[0]),
+                c.attempts ? h("span", { class: "stat" }, `${c.correct}/${c.attempts}`) : null,
+              ),
+            )),
+          ),
+        ]
+      : h("p", { class: "legend" }, `${live.length} ideas ready. Check it off once you've read it.`);
+  } else if (ch.status === "queued" || ch.status === "running") {
+    detail = h("p", { class: "legend loading" }, ch.status === "running" ? "Writing questions" : "Waiting to write questions");
+  } else if (ch.status === "failed") {
+    detail = h("p", { class: "legend" },
+      "Couldn't write questions. ",
+      h("a", { href: "", onclick: async (e) => {
+        e.preventDefault();
+        await api(`/api/chapters/${encodeURIComponent(ch.id)}/generate`, {});
+        run(showLibrary);
+      } }, "Try again"),
+      ch.error ? h("span", { class: "error-detail" }, ` (${ch.error})`) : null);
+  } else {
+    detail = h("p", { class: "legend" }, "No questions yet. Add this book's EPUB below to write them.");
+  }
 
-  const solid = count("solid");
-  const learning = count("learning");
-  const fading = count("fading");
-  const fresh = count("new");
-  const width = (n) => `width:${(100 * n) / Math.max(live.length, 1)}%`;
-  return h("div", { class: "chapter" },
-    head,
-    h("div", { class: "bar" },
-      h("span", { class: "s-solid", style: width(solid) }),
-      h("span", { class: "s-learning", style: width(learning) }),
-      h("span", { class: "s-fading", style: width(fading) })),
-    h("p", { class: "legend" }, `${solid} solid · ${learning} learning · ${fading} due for review · ${fresh} not yet asked`),
-    h("details", {},
-      h("summary", {}, `${live.length} ideas`),
-      h("ul", { class: "concepts" }, ch.concepts.map((c) =>
-        h("li", {},
-          h("span", { class: `dot ${c.status}`, title: c.status }),
-          h("span", {}, c.statement.split(/(?<=\.)\s/)[0]),
-          c.attempts ? h("span", { class: "stat" }, `${c.correct}/${c.attempts}`) : null,
-        ),
-      )),
-    ),
+  return h("div", { class: `chapter ${ch.read ? "is-read" : ""}` },
+    h("label", { class: "chapter-head" }, check, h("span", { class: "chapter-title" }, ch.title)),
+    detail,
   );
 }
 
@@ -225,7 +275,7 @@ async function run(view) {
 }
 
 function route() {
-  run(location.hash === "#progress" ? showProgress : showQuestion);
+  run(location.hash === "#library" ? showLibrary : showQuestion);
 }
 window.addEventListener("hashchange", route);
 route();
