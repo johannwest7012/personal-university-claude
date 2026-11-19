@@ -7,14 +7,24 @@
   <title>Personal University</title>
 </head>
 <body>
-  <form class="login" method="post" action="/login">
+  <form class="login" method="post" action="/login" id="form">
     <h1>Personal University</h1>
-    <input type="password" name="password" placeholder="Password" autocomplete="current-password" autofocus required>
-    <p class="error" id="error" hidden>That password didn't work.</p>
+    <input class="pin" type="password" name="password" id="pin" placeholder="PIN"
+      inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="current-password" autofocus required>
+    <p class="error" id="error" hidden></p>
     <button class="btn" type="submit">Sign in</button>
   </form>
   <script>
-    if (new URLSearchParams(location.search).has("failed")) document.getElementById("error").hidden = false;
+    const params = new URLSearchParams(location.search);
+    const error = document.getElementById("error");
+    if (params.has("failed")) { error.textContent = "That PIN didn't work."; error.hidden = false; }
+    if (params.has("locked")) { error.textContent = "Too many wrong PINs. Try again in a few minutes."; error.hidden = false; }
+    // Sign in as soon as the fourth digit is typed.
+    const pin = document.getElementById("pin");
+    pin.addEventListener("input", () => {
+      pin.value = pin.value.replace(/\D/g, "").slice(0, 4);
+      if (pin.value.length === 4) document.getElementById("form").submit();
+    });
   </script>
 </body>
 </html>

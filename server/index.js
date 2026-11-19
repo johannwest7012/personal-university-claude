@@ -1,4 +1,4 @@
-import { createHmac, timingSafeEqual } from "node:crypto";
+import { createHmac, randomBytes, timingSafeEqual } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -33,23 +33,48 @@ for (const seed of syncLibrary(db, join(root, "data"))) {
 
 const app = new Hono();
 
-// --- Auth: a single shared password, since this app has exactly one user. ---
+const DEPLOYED = Boolean(process.env.RAILWAY_ENVIRONMENT_NAME);
+
+// --- Auth: a short shared PIN, since this app has exactly one user. ---
 const PASSWORD = process.env.APP_PASSWORD;
 const COOKIE = "pu_session";
-const sessionToken = PASSWORD && createHmac("sha256", PASSWORD).update("personal-university-session").digest("hex");
+
+// The session cookie is keyed with a random secret kept in the database, not derived from the PIN
+// alone: with only 10,000 possible PINs, a PIN-derived cookie could be computed without logging in.
+db.exec("CREATE TABLE IF NOT EXISTS settings (key TEXT PRIMARY KEY, value TEXT NOT NULL)");
+let secret = db.prepare("SELECT value FROM settings WHERE key = 'session_secret'").get()?.value;
+if (!secret) {
+  secret = randomBytes(32).toString("hex");
+  db.prepare("INSERT INTO settings (key, value) VALUES ('session_secret', ?)").run(secret);
+}
+const sign = (pin) => createHmac("sha256", secret).update(`session:${pin}`).digest("hex");
+const sessionToken = PASSWORD && sign(PASSWORD);
+
+// At most 5 wrong PINs per 15 minutes, across all clients. Someone guessing can lock sign-in
+// for a while, but the cookie lasts a year, so that rarely matters.
+const MAX_FAILURES = 5;
+const FAILURE_WINDOW = 15 * 60_000;
+let failures = [];
 
 app.post("/login", async (c) => {
+  const now = Date.now();
+  failures = failures.filter((t) => now - t < FAILURE_WINDOW);
+  if (failures.length >= MAX_FAILURES) return c.redirect("/login.html?locked=1");
+
   const { password } = await c.req.parseBody();
-  const given = createHmac("sha256", String(password ?? "")).update("personal-university-session").digest("hex");
-  if (!PASSWORD || !timingSafeEqual(Buffer.from(given), Buffer.from(sessionToken))) return c.redirect("/login.html?failed=1");
+  const given = sign(String(password ?? "").trim());
+  if (!PASSWORD || !timingSafeEqual(Buffer.from(given), Buffer.from(sessionToken))) {
+    failures.push(now);
+    return c.redirect(failures.length >= MAX_FAILURES ? "/login.html?locked=1" : "/login.html?failed=1");
+  }
+  failures = [];
   setCookie(c, COOKIE, sessionToken, {
-    httpOnly: true, secure: c.req.url.startsWith("https"), sameSite: "Lax", path: "/", maxAge: 60 * 60 * 24 * 365,
+    httpOnly: true, secure: new URL(c.req.url).protocol === "https:" || DEPLOYED, sameSite: "Lax", path: "/", maxAge: 60 * 60 * 24 * 365,
   });
   return c.redirect("/");
 });
 
 // Deployed without a password, serve nothing rather than serve the app to anyone.
-const DEPLOYED = Boolean(process.env.RAILWAY_ENVIRONMENT_NAME);
 app.use("*", async (c, next) => {
   if (!PASSWORD && DEPLOYED && c.req.path !== "/healthz") return c.text("Set APP_PASSWORD to use this app.", 503);
   return next();

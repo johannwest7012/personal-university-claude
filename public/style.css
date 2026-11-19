@@ -181,3 +181,4 @@ h1 { font-size: 22px; margin: 0 0 4px; }
   border: 1.5px solid var(--line); background: var(--surface); color: var(--text);
 }
 .error { color: var(--wrong); font-size: 15px; }
+.login input.pin { font-size: 28px; letter-spacing: 0.5em; text-align: center; }
